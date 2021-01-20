@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: orangered;
+        }
+        div{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="fun()">开始</button>
+    <div>
+        <div id="box"></div>
+    </div>
+</body>
+</html>
+<script>
+    let box=document.getElementById('box')
+    box.time=null
+    function start(obj,target){
+        clearInterval(obj.time)
+        obj.time=setInterval(()=>{
+            let speed=(target-obj.offsetLeft)/10
+            // 去掉小数
+            speed=speed>0?Math.ceil(speed):Math.floor(speed)
+            obj.style.left=obj.offsetLeft+speed+'px'
+        },50)  
+    }
+    function fun(){
+        start(box,1000)
+    }
+</script>

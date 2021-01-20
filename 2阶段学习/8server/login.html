@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="userName" id="uName" value="" />
+		<input type="text" name="userPwd" id="uPwd" value="" />
+		<input type="button" name="" id="btn" value="注册" />
+	</body>
+</html>
+<script type="text/javascript">
+	let uName = document.getElementById('uName')
+	let uPwd = document.getElementById('uPwd')
+	let btn = document.getElementById('btn')
+	// 延长cookie生存周期
+	let date = new Date()
+	date.setDate(date.getDate()+7)
+	btn.onclick = function(){
+		document.cookie = "userName="+uName.value+";expires="+date
+		document.cookie = 'userPwd='+uPwd.value+";expires="+date;
+		location.href = 'record.html'
+	}
+</script>

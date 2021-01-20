@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// es6不能兼容原型
+	class Animal{
+		constructor(newName) {
+		    this.name = newName
+		}
+		eat(){
+			console.log('eat')
+		}
+	}
+	
+	 // extends继承关键字
+	 // class 子类 继承 父类
+	class Human extends Animal{
+		constructor(newName,newId) {
+		    super(newName);	//调用父类构造方法，效果等同于构造函数中的Stu1.call(this,chinese_score) 	
+			this.id = newId
+		}
+		makeTools(){
+			console.log('makeTools')
+		}
+	}
+	let h = new Human('周星星',"9527")
+	console.log(h.name)	//可以使用父类的属性，this.name
+	h.eat()		//方法extends默认继承
+	h.makeTools()
+</script>

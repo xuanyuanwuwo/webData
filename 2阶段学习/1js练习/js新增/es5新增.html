@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // indexOf在数组中查找某个元素，如果有则返回该元素下标，如果没有则返回-1
+    var arr = [11,11,22,33,5,5,6,6]
+    var index=arr.indexOf(66)
+    console.log(index)
+    var str=[]
+    // 数组去重
+    for(var i=0; i<arr.length; i++){
+        if(str.indexOf(arr[i])==-1){
+            str.push(arr[i])
+        }
+    }
+    console.log(str)
+</script>

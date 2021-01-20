@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="txt"/>
+		<p></p>
+	</body>
+</html>
+<script type="text/javascript">
+	let txt = document.getElementById('txt')
+	txt.onblur= function(){
+		let xhr =new XMLHttpRequest()
+		xhr.open('post','server.php',true)
+		// 1.open后面设置请求头
+		xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+		
+		xhr.onreadystatechange = function(){
+			// status服务器状态 200服务器准备好
+			// readyState是xhr的状态 4是xhr加载完毕
+			if(xhr.status == 200 && xhr.readyState == 4){
+				console.log(xhr.responseText)
+				fun(xhr.responseText)
+			}
+		}
+		// 2数据在send处发送，多个参数用&连接xhr.send("username="+txt.value+"&userpwd="+pwd.value)
+		xhr.send('username='+txt.value)
+	}
+	function fun(str){
+		let p = document.querySelector('p')
+		p.innerHTML=str
+		// console.log(str)
+	}
+</script>

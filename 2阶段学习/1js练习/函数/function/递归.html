@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 递归 
+    function age(n){
+        var c
+        if(n==1){
+            c=10
+        }else{
+            c=age(n-1)+2
+        }
+        return c
+    }
+    console.log(age(5))
+
+    function s(m){
+        var x
+        if(m==1){
+            x=1
+        }else{
+            x=s(m-1)*m
+        }
+        return x
+    }
+    console.log(s(10))
+</script>

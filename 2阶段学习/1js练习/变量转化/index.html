@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 隐式转换
+    //字符串+整型=字符串
+    document.write("6"+7+'<br>')
+    document.write("(5+5)="+8+9+'<br>')
+    //字符串与整型相减等于数字，8 /  > <都和减法转换一样
+    document.write('7'-4+'<br>')
+    document.write("8"*6+'<br>')
+
+    //显示转换
+    //parseInt()整型转换
+    var i = "5"
+    document.write(parseInt(i)+2)
+    //parseFloat()浮点型转换
+    var j='123.456'
+    console.log(parseInt(j))
+    console.log(parseFloat(j))
+    //浮点型保留几位小数点
+    var a=12.456
+    console.log(a.toFixed(1))
+    console.log(100-'abc')//结果为NaN
+
+    //不同进制的相互转换
+    
+
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            display: block;
+            width: 1000px;
+        }
+        button{
+            position: fixed;
+            top: 100px;
+            right: 100px;
+            background-color: salmon;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>侬好啦</h1>
+    <img src="./9自定义属性/img/美女.jpg" alt="">
+    <img src="./9自定义属性/img/美女.jpg" alt="">
+    <img src="./9自定义属性/img/美女.jpg" alt="">
+    <img src="./9自定义属性/img/美女.jpg" alt="">
+    <img src="./9自定义属性/img/美女.jpg" alt="">
+    <img src="./9自定义属性/img/美女.jpg" alt="">
+    <img src="./9自定义属性/img/美女.jpg" alt="">
+    <img src="./9自定义属性/img/美女.jpg" alt="">
+    
+    <button>返回顶部</button>
+</body>
+</html>
+<script>
+    // 滚动条
+    window.onscroll=function(){
+        var _top=document.documentElement.scrollTop //滚动条距离顶部距离
+
+        // 兼容写法
+        var top=document.body.scrollTop||document.documentElement.scrollTop
+        console.log(top)
+    }
+
+    // 返回顶部
+    var but=document.querySelector('button')
+    but.onclick=function(){
+        document.body.scrollTop = document.documentElement.scrollTop = 0
+    }
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //ASCII码
+    // charCodeAt() 将字母按照ascii码值转换
+    var str='a';
+    console.log(str.charCodeAt(str))
+
+    var arr='hehehe' //找到下标对应的字符
+    console.log(arr.charAt(3))
+
+    var a=0,b=0,c=0,d=0,e=0
+    var arr='adsfABSDFA   @!?'
+    for(var i=0;i<arr.length; i++){
+        if(arr.charAt(i)>="A" && arr.charAt(i)<="Z"){
+            a++
+        }else if(arr.charAt(i)>="a" && arr.charAt(i)<="z"){
+            b++
+        }
+    }
+    console.log(a,b)
+
+    // 获取编码对应的字符
+    console.log(String.fromCharCode(97))
+
+    // replace('x','y')把一个字符串中的x元素，替换成y元素,并不会改变原字符串
+    var m='lao wang dahuang'
+    console.log(m.replace('hua','**'))
+    // console.log(m)
+   
+    //2. 敏感词过滤
+    var sz=['傻子','蠢货']
+    // var s=sz.join(' ')
+    // console.log(s.length)
+    var nex='那个傻子真是个蠢货'
+    for(var i=0; i<sz.length; i++){
+        // replace并不会改变原字符串，所以需要通过再次赋值
+       nex=nex.replace(sz[i],'**')
+    }
+    console.log(nex)
+
+
+//   split 以字符相隔，把字符串转换为数组
+    //1. 将字符传按照单词你学，以空格隔开
+    var m='lao wang dahuang'
+    var n=m.split(' ')
+    // join 以字符相隔 把数组转化为字符串
+    console.log((n.reverse()).join(' '))
+
+    // toLowerCase 字符串全变小写
+    // toUppercase 全变大写
+    // 3.字符串中每个单词以大写开头，将字符串单词用空格个开，且只保留首字母大写
+    var up='HelloMyWorld'
+    var lo=[]
+    up=up.split('')
+    for(var i=0; i<up.length; i++){  
+        if(i!=0 &&(up[i]>='A' && up[i]<='Z')){
+            lo.push(' ')
+            lo.push(up[i].toLowerCase())
+        }else{
+            lo.push(up[i])
+        } 
+    }
+    console.log(lo.join(' '))
+
+    // 对称数组
+    var zh=['one','two','three']
+    var fan=[]
+    for(var i=zh.length-1; i>=0;i--){
+        fan.push(zh[i])
+    }
+    
+    console.log(zh)
+    console.log(zh.concat(fan))
+
+    // 统计字符串中每个字符的个数
+    // var math='absddsnsdsaaccadf'
+    // var mah
+    // for(var i=0; i<math.length; i++){
+        
+    // }
+
+    // 数字字母混合验证码
+    var yz='0123456789abcdefghigklmnopqrstuvwxyz'
+    var ll=[]
+    for(var i=0; i<yz.length; i++){
+        ll.push(yz[parseInt(Math.random()*(yz.length-1))])
+        if(i>=3){
+            break
+        }
+    }
+    console.log(ll.join(''))
+</script>

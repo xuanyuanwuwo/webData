@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Stu1(chinese_score){
+		this.chinese = chinese_score;
+	}
+	Stu1.prototype.id = function(){
+		console.log('9527')
+	}
+	// 继承属性
+	function Stu2(Math_score,chinese_score){
+		this.math = Math_score
+		Stu1.call(this,chinese_score) 	
+	}
+	//继承方法
+	Stu2.prototype = new Stu1() //原型对象的继承
+	
+	let s2 = new Stu2(120,110)
+	console.log(s2.chinese)
+	s2.id() //此时可以调用
+</script>

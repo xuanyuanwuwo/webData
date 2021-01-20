@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 300px;
+				height: 486px;
+				border: 1px solid black;
+				margin: 10px auto;
+				background-image: url(img/cat.jpg);
+				background-size: 100% 100%;
+				font-weight: bold;
+			}
+			#tall{
+				height: 450px;
+				display:flex;
+				flex-direction: column;
+				flex: 1;
+			}
+			#tall p{
+				overflow: hidden;
+				margin-top: 10px;
+				
+			}
+			
+			#tall ul{
+				float: left;
+				margin-left: 10px;
+				padding: 2px;
+				margin-top: 15px;
+				list-style: none;
+				background-color: skyblue;
+				max-width: 80%;
+				border-radius: 3px;
+				background-color: white;
+			}
+			
+			#tall span{
+				max-width: 80%;
+				padding:2px;
+				float: right;
+				margin-right: 10px;
+				display: block;
+				text-align: right;
+				border-radius: 3px;
+				background-color: green;	
+			}
+			input{
+				height: 34px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div id="tall">
+				<!-- <span id="person"></span>
+				<ul id="robot">
+					
+				</ul> -->
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<input type="text" class="col-xs-10" id="text"/>
+					<input type="button" class="col-xs-2 center" value="发送" id="send"/>
+				</div>
+			</div>
+			
+		</div>
+		<a href="https://nfgn.qiyukf.com/client?k=3cee126de51bf8a39de1fbf84cbe4694&wp=1&robotShuntSwitch=1&robotId=5221325">009</a>
+	</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="./js/package_ajax.js"  charset="utf-8"></script>
+<script type="text/javascript">
+	let text = document.getElementById('text')
+	let send = document.getElementById('send')
+	// let person = document.getElementById('person')
+	// let robot = document.getElementById('robot')
+	send.onclick =function(){
+		let tall =document.getElementById('tall')
+		if(text.value != ""){
+			// let person = document.createElement('span')
+			let p = document.createElement('p')
+			// person.innerHTML=text.value
+			p.innerHTML=`<span>${text.value}</span>`
+			tall.appendChild(p)
+			// if(person.offsetWidth > tall.offsetWidth*0.8){
+			// 	person.style.maxWidth = tall.offsetWidth*0.8
+			// }
+			
+		}else{
+			text.value = "请输入内容"
+		}
+		ajax("get","./php/server.php","wd="+text.value,true,fun)
+		function fun(str){
+			let p = document.createElement('p')
+			// let ul = document.createElement('ul')/////
+			let json = JSON.parse(str)
+			let strhtml = ""
+			for(let index in json){
+				strhtml += `<li>${json[index]}</li>`
+			}
+			
+			p.innerHTML=`<ul>${strhtml}</ul>`
+			tall.appendChild(p)
+			
+		}
+	}
+	
+</script>
+<!-- <script src="https://nfgn.qiyukf.com/client?k=3cee126de51bf8a39de1fbf84cbe4694&wp=1&robotShuntSwitch=1&robotId=5221325">
+</script> -->
+<script src="http://api.turingos.cn/turingos/api/v2" type="text/javascript" charset="utf-8"></script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">清除cookie</button>
+		<button type="button">页面跳转</button>
+	</body>
+</html>
+<!-- jquery cookie插件引入 -->
+<script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript">
+	// 创建cookie
+	// $.cookie(name,value)
+	$.cookie("name","小佳")		//未指定过期时间，则在浏览器关闭过期
+	 
+	//  //设置时间
+	$.cookie("age","23",{expires:5}) 
+	
+	//读取cookie
+	// console.log($.cookie("name"))
+	// console.log($.cookie("age"))
+	name = $.cookie("name")
+	console.log(name)
+	age = $.cookie("age")
+	console.log(age)
+	//读取所以cookie
+	// console.log($.cookie())
+	
+	//删除cookie
+	$("button").eq(0).click(function(){
+		$.removeCookie("name",)
+		$.removeCookie("age")
+	})
+	$("button").eq(1).click(function(){
+		location.href = "cookie2.html"
+	})
+</script>

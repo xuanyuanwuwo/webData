@@ -1,0 +1,32 @@
+html,body,div,p,span,ul,li,ol,h1,h2,h3,h4,h5,h6,a{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    /* border: 1px solid red; */
+    width: 292px;
+    margin: 100px auto;
+}
+li{
+    width: 73px;
+    list-style: none;
+    border: 1px solid red; 
+    float: left;
+    height: 30px;
+    position: relative;
+    box-sizing: border-box;
+}
+li p{
+    display: none;
+    height: 150px;
+    width: 292px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    position: absolute;
+    border-top: none;
+    top: 29px;
+    left: -1px;
+}
+li:first-of-type p{
+    display: block;
+}

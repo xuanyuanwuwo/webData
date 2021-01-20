@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="../js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$.ajax('',{
+		url:"list.php",
+		data:{
+			name:"梓曦",
+			age:"24"
+		},
+		// dataType:'json',//服务器返回json格式数据
+		type:'post',//HTTP请求类型
+		// timeout:10000,//超时时间设置为10秒；
+		success:function(data){
+			console.log(data)
+		},
+		error:function(xhr,type,errorThrown){
+			
+		}
+	});
+</script>

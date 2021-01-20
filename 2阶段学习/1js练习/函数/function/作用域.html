@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//    var i=100    //全局变量
+//    function fun(){
+//        console.log(i)
+//    }
+
+//    function tet(){
+//        var x=12         //局部变量
+//        console.log(x)
+//    }
+//    tet()
+
+    //    函数定义的嵌套
+    function fun1(){
+        var a =1
+        function fun2(){
+            var b = 5
+            console.log(a) //子函数可以使用父函数的变量
+        }
+        fun2()
+        // console.log(b)   但是父函数不能使用子函数的变量
+    }
+    fun1()
+
+</script>

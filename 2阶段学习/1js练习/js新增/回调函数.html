@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 回调函数，一个函数作为另一个函数的参数,作为参数的函数是回到函数
+    function fun1(fun){
+        fun()   //原来的函数怎么调用，作为参数的函数依然怎么调用
+    }
+    function fun2(){
+        console.log('hahaha')
+    }
+   fun1(fun2)
+
+    // forEach 对数组的没个元素进行处理(函数的方式),没有返回值，直接改变当前数组
+   var arr = [11,33,44,5,6,66]
+   function add(v,index,arr){    
+        arr[index] +=10  //不能用v=v+10,v仅是元素的数值
+   }
+
+   arr.forEach(add) //一个函数作为参数传入forEach,没有返回值
+
+
+//    map和forEach类似，但是有返回值，返回一个新的数组
+   var str=[2,3,45,6,7,6]
+   function fun(v,index,str){
+      return str[index] += 5  //需要return
+   }
+   var s=str.map(fun)
+   console.log(s)
+
+// filter 获取满足条件的数值
+    var fil=[2,3,45,6,7,6]
+    function myFilter(v,index,fil){
+        if(v%2 ==0){
+            return true
+        }
+    }
+    var l=fil.filter(myFilter)
+    console.log(l)
+
+    // reduce 元素叠加
+    var re=[2,4,5,6,7,8]
+    function sun(total,v,index,re){
+         total += v
+         return total
+    }
+    console.log(re.reduce(sun))
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box1">
+			哄哄
+		</div>
+		<div id="box2">
+			小司音
+		</div>
+		<div id="box3">
+			梓熙
+		</div>
+		<div id="box4">
+			<p>爱唱歌的小佳</p>
+			钱小佳
+		</div>
+		<div id="box5">
+			玖月
+		</div>
+</body>
+</html>
+<script src="../js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(()=>{
+		//next 下一个
+		// $("#box1").next().css({backgroundColor:"orange"})
+		//nextAll 下面所以
+		// $("#box1").nextAll().css({backgroundColor:"orange"})
+		
+		//prev 
+		// $("#box3").prev().css({backgroundColor:"orange"})
+		//prevAll
+		// $("#box5").prevAll().css({backgroundColor:"orange"})
+		
+		// find() 查找元素，必須有參數 body 下的所有div
+		// $("body").find('div').css({backgroundColor:"black",color:"white"})
+		// children() 不写参数是body里面所有元素，有参数是body里面所有某个元素
+		$("body").children().css({backgroundColor:"orange",color:"gray"})
+		
+		// parent
+		$("p").parent().css({backgroundColor:"pink"})
+	})
+</script>

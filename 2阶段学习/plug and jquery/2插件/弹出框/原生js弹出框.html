@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 300px;
+				height: 300px;
+				display: none;
+				background-color: aquamarine;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">弹框</button>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>
+<script src="../../jQuery/js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script src="pop.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	
+	let box = document.getElementById('box')
+	let btn = document.querySelector('button')
+	btn.onclick =()=>{
+		let pop = new PopCase(box)
+		pop.setPopPosition()
+	}
+	
+	
+	
+</script>

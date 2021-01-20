@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #father{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid skyblue;
+        }
+        #sun{
+            width: 100px;
+            height: 100px;
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div id="sun"></div>
+    </div>
+</body>
+</html>
+<script src="./阻止事件冒泡.js"></script>
+<script>
+    // 事件冒泡，当子容器和父容器都有某个事件时，会从子到父，全部执行
+    var father=document.getElementById('father')
+    var sun=document.getElementById('sun')
+    father.onclick=()=>{
+        
+        alert('fu')
+    }
+    stop(sun)
+    
+</script>

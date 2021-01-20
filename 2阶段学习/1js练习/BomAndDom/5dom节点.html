@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body id="boy">
+    <p id="_p">hehhe</p>
+    <ul id="list">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+    </ul>
+</body>
+</html>
+<script>
+    // dom节点
+    // childNodes
+    var obody=document.getElementById('boy')
+    // 每个标签默认后面有个隐藏节点
+    // 文本节点
+    // parentNode(父节点), firstChild(第一个子节点),lastChild（最后一个子节点）,
+    // nextSibling（下一个子节点）,previousSibling（上一个子节点）
+    console.log(obody.firstChild.innerHTML) //所以结果为underfind
+
+
+    // 元素节点
+    // parentElement,
+    // firstElementChild,
+    // lastElementChild
+    // nextElementSibling
+    // previousElementSibling
+    obody.firstElementChild.innerHTML='力王'
+
+    // 节点类型nodeType
+    // 三个返回这，1代表元素类型，2代表属性节点，3代表文本节点
+
+    var p=document.getElementById('_p')
+    console.log(p.nodeType) //返回1，元素节点
+    console.log(p.firstChild.nodeType)  //反回3.文本节点
+    console.log(p.getAttributeNode('id').nodeType) //反回2.属性节点
+
+    // 过滤空白节点
+    var oul=document.getElementById('list')
+    // e是ul的子节点集合，数组形式
+    var e=oul.childNodes
+    for(var i=0; i<e.length; i++){
+        if(e[i].nodeType==3){
+            e[i].remove()
+        }
+    }
+    console.log('heihei')
+    console.log(e.length)
+    for(let i=0; i<e.length; i++){
+        console.log(e[i].innerHTML)
+    }
+</script>

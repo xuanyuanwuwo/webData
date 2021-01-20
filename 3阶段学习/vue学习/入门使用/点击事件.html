@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- view -->
+    <div id="app">
+        <div>当前数字:{{num}}</div>
+        <button v-on:click = "add">+</button>
+        <button @click = 'sub'>-</button>
+    </div>
+</body>
+</html>
+<script src="../js/vue.js"></script>
+<script>
+    //mvvm
+    // @click 语法糖：简写
+    const app = new Vue({      //new Vue   viewmodel
+        el:"#app",
+        // el: document.getElementById('id'),
+        data:{
+            num:0       //data   model
+        },
+        methods:{
+            // add:function(){
+            //     this.num++
+            // }
+            //上面等于下面
+            add(){
+                this.num++
+                console.log(this.num)
+            },
+            sub(){
+                if(this.num>0){
+                    this.num--
+                    console.log(this.num)
+                }
+            }
+        }
+    })
+
+    //函数和方法区别
+    // 都是function定义
+    // 一般写在外面的成为函数
+    // 写在内部 ，属于一个类的称为方法
+</script>

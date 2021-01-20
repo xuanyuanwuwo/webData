@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Fun1(newid,newname){		//类
+		this.name = newname;
+		this.id = newid
+	}
+	// 实例的所有方法存在prototype
+	Fun1.prototype.eat=function(){
+		console.log('eat')
+	}
+	let f1 = new Fun1('11','梁山伯')		//函数实例
+	let f2 = new Fun1("12",'祝英台')
+	console.log(f1.id,f1.name)
+	console.log(f2.name)
+	f1.eat()
+	f2.eat()
+	
+	// ---------------------------------------------------------------------
+	Array.prototype.max = function(){
+		let m =this[0]
+		for(let i=0; i<this.length;i++){
+			if(m < this[i]){
+				m = this[i]
+			}
+		}
+		return m
+	}
+	let arr = [2,3,4,5,6,6,7]
+	console.log(arr.max())
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div id="odiv"></div>
+</body>
+</html>
+<script>
+    // 自定义属性
+        var box=document.getElementById('odiv')
+        // 获取属性值
+        console.log(box.getAttribute('id'))
+        //更改属性值
+        box.setAttribute('id','box')
+        console.log(box.getAttribute('id'))
+        box.setAttribute('hehe','777')
+        console.log(box.getAttribute('hehe'))
+</script>

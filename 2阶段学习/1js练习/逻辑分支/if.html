@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            display: block;
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background: chocolate;
+            color: white;
+            cursor: pointer;
+        }
+        table{
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <table border="1" cellspacing="10" cellpadding="10">
+        <tr>
+            <td>60</td>
+            <td>70</td>
+            <td>40</td>
+            <td>90</td>
+        </tr>
+    </table> -->
+    <span id="st">444</span>
+</body>
+</html>
+<script>
+    // var st=document.getElementById("st")
+    // var nub=document.querySelector("td")
+    // var nb=Number(nub[0].innerText)
+    st.onclick=function(){
+        var str = Number(st.innerText)
+        console.log(str)
+        
+    }
+  
+    // if(条件表达式tr){
+    //     语句
+    // }else{
+    //   语句
+    // }
+    // var i=4
+    // nub.onclick=function(){
+    //     if(nb<60){
+    //         alert('你，out')
+    //     }else{
+    //         alert('恭喜你同学')
+    //     }
+    // }
+    var x=-2
+    var y
+    if(x>0){
+        y = 2*x+1;
+        console.log(y)
+    }else if(x<=0){
+        y = x;
+        console.log(y)
+    }
+    // var a=2
+    // var b=3
+    // var c=a>b?a:b
+    // console.log(c)
+    // 三目运算符
+    var a=222
+    var b=333
+    var c=344
+    var d=a>b?a:b
+    var e=d>c?d:c
+    console.log(e)
+
+    // 闰年：四年一润百年不润四百年不润
+    var year=2021
+    if((year%4==0 && year%100 != 0) || (year%400 == 0)){
+        console.log('吉时已到')
+    }else{
+        console.log('时机未到')
+    }
+
+    //分支条件语句
+    // switc(值表达式){
+    //     case 常量表达式1：
+    //         语句1；
+    //          break结束语句
+    //     case: 常量表达式2：
+    //         语句2；
+    //     case: 常量表达式3：
+    //         语句3
+    // }
+    var score = 100
+    //值表达式必须和常量表达式一致
+//    switch(parseInt(score/10)){
+//         case 10:
+//             //10和9执行的程序一样都是a，所以可以不用加break
+//         case 9:
+//             console.log('a');
+//             break;
+//         case 8:
+//             console.log('b');
+//             break;
+//         case 7:
+//             console.log('c');
+//             break;
+//    }
+
+   var  n=6775
+   var m
+   
+  if((n>=10000)&&(n<100000)){
+      console.log("五位数")
+      var n1=n%10
+        n=parseInt(n/10)
+  }else if((n>=1000)&&(n<10000)){
+      console.log('四位数')
+      var n2=n%10
+      n=parseInt(n/10)
+  }else if((n>=100)&&(n<1000)){
+      console.log('三位数')
+      var n3=n%10
+      n=parseInt(n/10)
+  }else if((n>=10)&&(n<100)){
+      console.log('两位数')
+      var n4=n%10
+      n=parseInt(n/10)
+  }else if((n>0)&&(n<10)){
+      console.log('个位数')
+      var n5=n/1
+      console.log(n5)
+  }
+  console.log(''+n1+n2+n3+n4+n5)
+</script>

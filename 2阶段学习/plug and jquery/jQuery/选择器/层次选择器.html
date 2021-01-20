@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box1">
+			111
+		</div>
+		<div id="box2">
+			222
+		</div>
+		<div id="box3">
+			333
+		</div>
+		<div id="box4">
+			444
+		</div>
+		<div>
+			<p>
+				<span id="">
+					555
+				</span>
+			</p>
+			<span id="">
+				666
+			</span>
+		
+			
+		</div>
+	</body>
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript">
+	$(()=>{
+		// 后代选择器(无视距离，针对后代所以符合元素)
+		// $("body div").css({backgroundColor:"blue"})
+		
+		//子选择器(a元素的第一代直接子元素)
+		// $("div>span").css({backgroundColor:"green"})
+		
+		// 相邻选择器（它后面紧挨着的元素）
+		// $("#box2+div").css({backgroundColor:"orange"})
+		
+		//兄弟选择器（后面所有平级元素）
+		$("#box2~div").css({backgroundColor:"red"})
+	})
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="">
+			hon
+		</div>
+		<div id="">
+			dsajh
+		</div>
+		<div id="ye">
+			ssdasd
+		</div>
+		<div id="hu" class="lai">
+			只要你过得比我好
+		</div>
+	</body>
+</html>
+<script src="js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(()=>{
+		// 属性选择器
+		$("div[id]").css({backgroundColor:"red"})
+		$("div[class]").css({backgroundColor:"yellow"})
+		$("div[id=ye]").css({backgroundColor:"blue"})
+		$("div[id][class]").css({backgroundColor:"orange"})
+	})
+</script>

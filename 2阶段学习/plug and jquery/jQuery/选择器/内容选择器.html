@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="">
+			hon
+		</div>
+		<div id="empty">
+			<span id="money">
+				钱
+			</span>
+		</div>
+		<div id="ye"></div>
+		<div id="hu" class="lai">
+			只要你过得比我好
+		</div>
+		<div id="shuo" class="lai">
+			慕梓梧桐
+		</div>
+		<div id="ba" class="lai">
+			<span id="shan">
+				青山常在
+			</span>
+		</div>
+	</body>
+</html>
+<script src="js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	// 内容选择器
+	
+	$(()=>{
+		// contains (选中字符串中存在符合内容的元素)
+		$("div:contains('梧桐')").css({backgroundColor:"orange"})
+		
+		//empty 选中内容为空的元素，空格换行都不能有
+		$("div:empty").css({backgroundColor:"red",height:"30px"})
+		
+		// has 
+		// 根据子元素进行筛选，选中包含某个元素的的标签
+		$("div:has(span)").css({backgroundColor:"purple"})
+		$("div:has(#money)").css({backgroundColor:"skyblue"})
+		
+	})
+</script>

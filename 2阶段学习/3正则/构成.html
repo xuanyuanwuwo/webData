@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button>点击</button>
+</body>
+</html>
+<script>
+    var reg=/a/  //字符串必须至少拥有一个a字母
+        reg= /^a$/   // 特殊字符 ^以什么开头  $以什么结尾
+        reg=/^ba{3,5}$/    //{}前面的数最少少3个，最多5个
+        reg=/^6{5}$/   //5个6
+        reg=/^\d{3}$/     //   \d代表0-9之间的数字 \D 非0-9之间的数字
+        reg=/\w{3,6}/   //  \w代表数字，字母，下划线
+        reg=/.{5}/  // .元字符代表任意一位字符，出现5次
+        reg=/www\.baidu\.com/   //因为.的特殊意义，在写进网址时需要\转义
+        reg=/^3+5$/   //  +前面的字符至少出现1次
+        reg=/^1[35]\d{9}$/  //  手机号验证 [35]代表3或5
+        reg=/^1(3|5)\d{9}$/ //  (3|5)3或5
+        reg=/^[a-z]$/ //a到z [A-Z]  [0-9]
+    var oTxt=document.getElementById('txt')
+    var oBtn=document.querySelector('button')
+    oBtn.onclick=function(){
+        if(reg.test(oTxt.value)){
+            console.log(true)
+        }else{
+            console.log(false)
+        }
+    }
+
+    // 正则相关字符串方法
+    var r,s
+    s='aha 123 how 456 why hwo who'
+    var re=/how/i
+    var re2=/who/i
+    var d=/\d+/g
+
+    // search返回与正则匹配的第一个字符串的位置,如果无，则返回-1
+    console.log(s.search(re))
+
+    // match查找字符串中与正则匹配的内容。将其结果返回数组
+    console.log(s.match(d))
+    console.log(s.match(d)[0])
+</script>

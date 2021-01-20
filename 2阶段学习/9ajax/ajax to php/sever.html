@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p></p>
+	</body>
+</html>
+<script type="text/javascript">
+	let xhr =new XMLHttpRequest()
+	xhr.open('GET','2server.php',true)
+	xhr.onreadystatechange = function(){
+		// status服务器状态 200服务器准备好
+		// readyState是xhr的状态 4是xhr加载完毕
+		
+		// 后端进行数据处理,处理完成后返回给前端,以避免也免得同步刷新,达到局部刷新的效果
+		
+		if(xhr.status == 200 && xhr.readyState == 4){
+			fun(xhr.responseText)
+		}
+	}
+	xhr.send()
+	function fun(str){
+		let p = document.querySelector('p')
+		p.innerHTML=str
+	}
+</script>

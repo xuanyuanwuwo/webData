@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div >
+			
+		</div>
+		<button type="button">加载更多</button>
+	</body>
+</html>
+<script type="text/javascript">
+	let odiv = document.querySelector('div')
+	let btn = document.querySelector('button')
+	// 按照分页原理,设一个页数page
+	function getnews(page){
+		let xhr = new XMLHttpRequest()
+		// 向后台传参（页数），
+		xhr.open("get","news.php?page="+page,true)
+		xhr.onreadystatechange=function(){
+			if(xhr.status == 200 && xhr.readyState == 4){
+				console.log('ii')
+		// 后台进行条件判断，然后返回数据对应页的数据
+				odiv.innerHTML += xhr.responseText
+			}
+		}
+		xhr.send()
+	}
+	getnews(1)
+	btn.onclick = function(){
+		getnews(2)
+		this.style.display='none'
+	}
+</script>

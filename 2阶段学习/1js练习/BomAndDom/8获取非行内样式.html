@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #odiv{
+            width: 300px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="odiv" style="color: red;">
+
+    </div>
+</body>
+</html>
+<script>
+    var odiv=document.getElementById('odiv')
+    // 获取行内样式
+    console.log(odiv.style.color)
+
+    // 获取非行内样式 false是固定的
+    console.log(getComputedStyle(odiv,false)['color'])  //要考虑兼容性问题
+    console.log(getComputedStyle(odiv,false)['width'])
+    console.log(getComputedStyle(odiv,false)['height'] )
+
+    // 兼容性函数
+    function getStyle(obj,arr){     //获取非行内样式，obj是对象，arr是值，也是属性
+        if(obj.currenStyle){        //针对ie，如果存在该函数，则执行ie
+            return obj.currenStyle[arr]
+        }else{
+            return getComputedStyle(odiv,false)[arr]
+        }
+    }
+    console.log(getStyle(odiv,'height'))
+</script>

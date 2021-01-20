@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            background: url(./jup.jpg) no-repeat;
+            width: 100px;
+            height: 100px;
+            background-size:cover;
+            position: absolute;
+            top: 500px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        
+    </div>
+</body>
+</html>
+<script>
+    var obox=document.getElementById('box')
+    document.onclick=function(evt){
+        var e = evt || event;
+        obox.style.top = obox.offsetTop - 100+'px'
+        obox.style.left = obox.offsetLeft+100+'px'
+        setTimeout(() => {
+            obox.style.top = obox.offsetTop +100+'px'
+        }, 1000);
+    }
+</script>

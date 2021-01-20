@@ -1,0 +1,43 @@
+html, body, ul, li, p {
+  margin: 0;
+  padding: 0; }
+
+#box {
+  width: 600px;
+  height: 100px; }
+
+#box1 {
+  width: 100px;
+  height: 200px;
+  background: skyblue; }
+
+#box2 {
+  background-color: aqua;
+  height: 100px; }
+
+.item-4 {
+  width: 8em;
+  height: 10px;
+  background: red; }
+
+.item-3 {
+  width: 6em;
+  height: 10px;
+  background: red; }
+
+.item-2 {
+  width: 4em;
+  height: 10px;
+  background: red; }
+
+.item-1 {
+  width: 2em;
+  height: 10px;
+  background: red; }
+
+.item-0 {
+  width: 0em;
+  height: 10px;
+  background: red; }
+
+/*# sourceMappingURL=sass-high.css.map */

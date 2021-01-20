@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		搜索：<input type="text" />
+		<ul>
+			
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	let ip = document.querySelector('input')
+	let ul = document.querySelector('ul')
+	ip.oninput = function(){
+		let xhr = new XMLHttpRequest()
+		xhr.open('get','query.php?wd='+ip.value,true)
+		xhr.onreadystatechange = function(){
+			if(xhr.status == 200 && xhr.readyState == 4){
+				// ajax发送数据，再返回含有此数据的字符串
+				// console.log("11")
+				fun(xhr.responseText)
+			}
+		}
+		xhr.send()
+		
+		function fun(str){
+			let json = JSON.parse(str)
+			let strhtml=""
+			for(let index in json){
+				// console.log(json[index])
+				// strhtml+='<li>'+json[index]+'</li>'
+				// es6模板语法
+				strhtml += `<li> ${json[index]} </li>`
+			}
+			ul.innerHTML = strhtml
+		}
+	}
+	
+</script>

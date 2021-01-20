@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+        } */
+        div{
+            width: 210px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class Waterfall{
+        constructor(){
+
+        }
+        createDiv(){            
+            for(let i=0; i<47; i++){
+                // 创建div
+                let div = document.createElement('div')
+                div.innerHTML = i
+                // 随机高
+                let hei = Math.round(Math.random()*300+50)
+                // console.log(hei)
+                div.style.height = hei + "px"
+                // 背景图
+                div.style.backgroundImage = "url(./img/"+i+".jpg)"
+                div.style.backgroundSize = "210px "+ hei+"px"
+                document.body.appendChild(div) 
+            }
+            this.change()
+            
+        }
+        change(){
+            // 获取已有div元素
+            let odiv = document.getElementsByTagName('div')
+            // 一行能放几个div
+            let n=Math.floor(window.innerWidth/(odiv[0].offsetWidth+10))
+            console.log(n)
+            // 储存div的高度的数组
+            let arrh=[]
+            for(let i=0; i<odiv.length; i++){
+                if(arrh.length == n){
+                    // 获取当前最低高度的坐标
+                    let index = this.findMin(arrh)
+                    // 设置当前元素的定位
+                    odiv[i].style.left = index * 210 + index * 10 + "px"
+                    odiv[i].style.top = arrh[index] + 10 + "px"
+                    // 更新此列高度，当前下标的高度，再次循环时会重新计算数组内最低高度，返回下标
+                    arrh[index] += odiv[i].offsetHeight+10
+                }else{
+                    // 存放元素的高度至第一列
+                    arrh[i] = odiv[i].offsetHeight
+                    // 设置div的left
+                    odiv[i].style.left = i*210 + i*10 + "px"
+                    odiv[i].style.top = 0
+                }
+            }
+
+        }
+        findMin(arrh){
+            let index = 0
+            for(let i=0; i<arrh.length; i++){
+                if(arrh[index] > arrh[i]){
+                    index = i
+                }
+            }
+            return index
+        }
+    }
+    let water=new Waterfall()
+    water.createDiv()
+</script>

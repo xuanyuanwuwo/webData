@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="mydiv">
+			111
+		</div>
+		<div id="">
+			222
+		</div>
+		<p>jjj</p>
+		<span>kkk</span>
+		<strong>oooo</strong>
+	</body>
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript">
+	$(()=>{
+		// 1\id选择器
+		// css写法1
+		$("#mydiv").css("color","red")
+		// 写法2
+		$("#mydiv").css({fontSize:"30px",fontWeight:"100"})
+		
+		//2\class选择器
+		// 同上
+		
+		//3\ 标签选择器
+		$("div").css({backgroundColor:"blue"})
+		// 想要改变其中某个
+		$("div").eq(1).css({backgroundColor:"red"})
+		
+		// 4、群组选择器，选个多个元素
+		$("p,span,strong").css({backgroundColor:"yellow"})
+		
+		//5、通配符选择器(比较生猛，html也会更改)
+		 $("*").css({backgroundColor:"black"})
+	})
+	
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button id="but">百度</button>
+</body>
+</html>
+<script>
+    // location
+    var but=document.getElementById('but')
+    
+    
+   
+    but.onclick=()=>{
+        // href路径地址，可读可写，跳转可返回
+        // setTimeout(()=>{
+        // location.href='http://www.baidu.com'
+        // },4000)
+
+        // replac替换，不能返回
+        // location.replace('http://www.baidu.com')
+
+        // reload刷新
+        location.reload()
+    }
+</script>

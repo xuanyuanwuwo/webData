@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 事件监听addEventListener
+    // 1同一个元素绑定两个相同的事件
+    // document.addEventListener('click',function(){
+    //     alert('222')
+    // },false)
+    // document.addEventListener('click',function(){
+    //     alert('111')
+    // },false)
+
+    // 2可以决定两个事件的顺序，true捕获，false冒泡，默认false，先捕获后冒泡
+    // document.addEventListener('click',function(){   //3
+    //     alert('222')
+    // },false)
+    // document.addEventListener('click',function(){   //2
+    //     alert('111')
+    // },true)
+    // window.addEventListener('click',function(){     //4
+    //     alert('oooo')
+    // },false)
+    // window.addEventListener('click',function(){     //1
+    //     alert('eee')
+    // },true)
+
+    // 兼容
+    // document.addEventListener("onclick",function(){
+    //     alert('hah')
+    // })
+
+    function addEvent(obj,type,callBack){
+        if(obj.attachEvent){
+            obj.attachEvent('on'+type,callBack)
+        }else{
+            obj.addEventListener(type,callBack)
+        }
+    }
+    addEvent(document,'click',function(){
+        alert('eee')
+    })
+</script>

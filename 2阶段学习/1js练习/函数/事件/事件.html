@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="fun()">你好</button>
+    <button id="fun1">我好</button> -->
+    <input type="text" id='t1' value="">
+    <select id='list'>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" id='t2' value="">
+    <button id='btn'>=</button>
+    <input type="text" id='t3' value="">
+</body>
+</html>
+<script>
+    // 事件的本质是函数的调用，通过某种动作调用函数
+    // 函数的绑定
+    // function fun(){
+    //     alert('哦哈哟')
+    // }
+    // var obtn = document.getElementById('fun1')
+    // var fun1=function(){
+    //     alert('nihao')
+    // }
+    // obtn.onclick = fun1
+    var bt1 = document.getElementById('t1');
+    var bt2 = document.getElementById('t2');
+    var bt3 = document.getElementById('t3');
+    var list = document.getElementById('list');
+    var btn = document.getElementById('btn');
+    btn.onclick=function(){
+        // console.log(Number(bt1.value))
+        switch(list.value){
+            case '+':
+                t3.value = Number(t1.value)+Number(t2.value);
+                break;
+            case '-':
+                t3.value = t1.value-t2.value;
+                break;
+            case '*':
+                t3.value = t1.value*t2.value;
+                break;
+            case '/':
+                t3.value = t1.value/t2.value;
+                break;
+        }
+    }
+
+</script>

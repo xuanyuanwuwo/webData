@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		localStorage
+		sessionStorage
+	</body>
+</html>
+<script type="text/javascript">
+	// 创建
+	let ls = localStorage 
+	let ss = sessionStorage
+	// 存储
+	// 方法一推荐第一种
+	ls.setItem("name","钱小佳")	//本地存储
+	ss.setItem("name","梓曦")	//会话存储（网页关了再打开就没了）
+	// 方法二
+	ls.pwd = 'sanzhiyan'
+	// 方法三
+	ls['score']=120
+	
+	//取
+	console.log(ls.getItem("name"))
+	console.log(ls.pwd)
+	console.log(ls['score'])
+	// 存取json数据
+	ls.setItem('person','{"name":"梓曦","age":"24","height":"165"}')
+	let myJson = JSON.parse(ls.getItem("person"))
+	console.log(myJson)
+	// for(let index in myJson){
+	// 	console.log(myJson[index])
+	// }
+	
+	// 改，和存相同，key存在则修改，可以不存在则创建
+	ls.setItem("name","梓熙")
+	
+	// 遍历，直接对每条数据进行操作---length,key
+	for(let i=0; i<ls.length;i++){
+		let lskey = ls.key(i)
+		console.log(lskey+":"+ls.getItem(lskey))
+	}
+	
+	// 删除
+	ls.removeItem('pwd')
+	// 全删
+	// ls.clear()
+	// 学习注意
+	// api的功能,
+	// 参数
+	// 返回值
+	// 查demo
+</script>

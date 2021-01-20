@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <!-- {{}} 双花括号模板语法，声明式渲染-->
+    <div id="app">
+        <p>{{content}}</p>
+        
+    </div>
+</body>
+</html>
+<script src="../js/vue.js"></script>
+<script>
+    // 创建vue
+    const app = new Vue({
+        el:'#app',
+        data:{
+            content:'hello VUE',
+        }
+    })
+</script>

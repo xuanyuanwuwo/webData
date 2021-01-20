@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+				background-image: url(../放大镜插件和使用/img/hu.jpg);
+			}
+		</style>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript">
+	$(()=>{
+		name = $.cookie("name")
+		console.log(name)
+		$.removeCookie("name2")
+	})
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	
+	</head>
+	<body>
+		
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript">
+	//从后台获取数据，get post
+	//$.get(url,data,callback,type)
+	//回调函数有2个参数，callback(responsetext,textStatus) 
+	//responsetext,返回的数据，textStatus请求状态，get和load不同，
+	//回调函数只有请求成功之后才会被调用
+	//type默认true
+	
+		// get的返回值是promise对象，有两种状态
+		$.get("get.php",{name:"梓曦"},(res,status)=>{
+			console.log(res)
+		}).then(function(res){
+			console.log("success")
+		},function(){
+			console.log("arre")
+		})
+	
+	
+	// post使用方法和get相同，$.post()
+	$.post("get.php",{name:"小梓曦吖"},(res)=>{
+		//confirm() //弹出一个确认框
+	}).then(function(){
+		console.log("确认")
+	},function(){
+		console.log("加载失败")
+	})
+	
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p></p>
+	</body>
+</html>
+<script type="text/javascript">
+	// 函数内置对象
+	//this(普通方法和事件方法)
+	function fun(){
+		console.log(this)	//this指的是调用函数的对象本身，此时是window
+	}
+	fun()
+	document.onclick=function(){
+		console.log(this)	//事件方法，调用事件的对象本身
+	}
+	
+	// arguments
+	function test(){
+		// arguments 一个伪数组，只能读写，不具备大多数组的功能
+		console.log(arguments[0])
+		for(let i=0;i<arguments.length;i++){
+			console.log(arguments[i])
+		} 
+		// arguments拥有属性
+		// console.log(arguments.callee()) //相当于test(),函数调用
+		// 在函数内部调用函数本身，此时相当于递归，没有结束条件，会造成死循环
+		
+		// console.log(arguments.callee)  //相当于test，函数名
+	}
+	test(11,22,33,44)
+	// 阶乘递归 
+	function add(n){
+		var c = 0
+		if(n==1){
+			c=1
+		}else{
+			// c = add(n-1)*n
+			c = arguments.callee(n-1)*n
+		}
+		return c
+	}
+	let p = document.querySelector('p')
+	p.innerHTML = add(10)
+</script>

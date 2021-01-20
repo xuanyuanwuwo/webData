@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>
+<script src="ajax插件.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	let li = document.getElementsByTagName('li')
+	function fun(str){
+		let json = JSON.parse(str)
+		console.log(json)
+		let arr=''
+		for(let i=0;i<json.length;i++){
+			li[i].innerHTML = json[i].id
+			arr +=json[i].img+";"
+		}
+		// arr.split(";") //此时无法改变，因为split的值需要返回
+		console.log(arr.split(";")[2])
+		// for()
+	}
+	new Ajax({
+		type:'get',
+		url:'new.json',
+		data:'',
+		isAsyn: true,
+		callback: fun,
+	}).ajax()
+</script>

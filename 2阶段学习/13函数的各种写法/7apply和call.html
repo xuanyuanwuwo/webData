@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Libai(newname){
+		this.name = newname
+	}
+	function Dufu(newname){
+		this.name = newname
+	}
+	// 接口
+	function eat(card){
+		console.log(card+this.name)
+	}
+	let lb = new Libai("李白")
+	let df = new Dufu("杜甫")
+	// 不是函数调用，只是通过函数名(函数对象来实现调用)
+	// call有两个参数
+	// call(想要改变的this对象,该函数实参)
+	eat.call(lb,'诗仙')
+	eat.call(df,'诗圣')
+	// apply()
+	eat.apply(lb,['将进酒'])
+	eat.apply(df,['春望'])
+	
+	// call 和 apply的真正用途,
+	// 把函数和对象之间解耦,让函数和对象没有关联
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 210px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class Phoeto{
+        constructor(){
+
+        }
+        created(){
+            for (let i = 0; i < 51; i++) {
+                // 创建div
+                let oDiv = document.createElement('div');
+                // oDiv
+                // 随机高度
+                let hei = Math.round(Math.random()*300+50);
+                oDiv.style.height = hei + "px"
+                // 设置背景图
+                oDiv.style.backgroundImage = "url(./img/"+i+".jpg)"
+                oDiv.style.backgroundSize = "210px " + hei+"px"
+                document.body.appendChild(oDiv)
+                
+            }
+            
+            this.change()
+        }
+        change(){
+            let div = document.getElementsByTagName('div')
+            // 计算一行能放几个div
+            let n = Math.floor(window.innerWidth/(div[0].offsetWidth + 10))
+            // 储存元素高度的数组
+            let arrH = []
+            for(let i=0; i<div.length; i++){
+                if(arrH.length == n){
+                    // 获去div最低高度的下标
+                    let index = this.findMin(arrH)
+                    console.log(index)
+                    // 设置当前元素的定位（当arrH.length=n时，再次循环div[i]就是新增元素）
+                    div[i].style.left = index * 210 + index * 10 + "px"
+                    
+                    div[i].style.top = arrH[index] + 10 + "px"
+                   // 更新此列高度，当前下标的高度，再次循环时会重新计算数组内最低高度，返回下标
+                    arrH[index] += div[i].offsetHeight + 10
+
+                }else{
+                    // 存放第一列元素的 高度
+                    arrH[i] = div[i].offsetHeight
+                    // 设置第一列元素的定位
+                    div[i].style.left = i * 210 + i*10 + 'px'
+                    div[i].style.top = 0
+                }
+            }
+        }
+        findMin(arrH){
+            let index = 0
+            for(let i=0; i<arrH.length; i++){   
+                if(arrH[index] > arrH[i]){
+                    index = i
+                }
+            }
+            return index
+        }
+
+        onscroll(){
+            let that = this
+            window.onscroll = function(){
+                let top = document.body.scrollTop || document.documentElement.scrollTop
+                if( top > 1000 ){
+                    that.created()
+                }
+            } 
+        }
+    }
+
+    let photo = new Phoeto()
+    photo.created()
+    photo.onscroll()
+</script>

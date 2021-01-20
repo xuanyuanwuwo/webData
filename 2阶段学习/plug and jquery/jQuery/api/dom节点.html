@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+			<li>555</li>
+		</ul>
+	</body>
+</html>
+<script src="../js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(()=>{
+		//创建节点
+		// 创建方法1
+		// let oli = $("<li>")
+		// oli.html("666")
+		// $("ul").append(oli)
+		
+		// 创建方法2
+		//1 append()
+		let oli = $("<li>梓曦</li>")
+		// $("ul").append(oli)
+		//2 appendTo()
+		// oli.appendTo($("ul"))
+		
+		// prepend()新建元素添加至每个元素内部且前置
+		//3 prepend
+		// $("ul").prepend(oli)
+		//4 prependTo
+		// oli.prependTo($("ul"))
+		
+		//5after 向目标元素 后面添加新建元素
+		// $("li").eq(2).after(oli)
+		//6 insertAfter 将新建元素添加到目标元素 后面
+		// oli.insertAfter($("li").eq(1))
+		
+		//7before 向目标元素 前面添加新建元素
+		// $("li").eq(2).before(oli)
+		//8 insertBefore 	将新建元素添加到目标元素 前面
+		oli.insertBefore($("li").eq(1))
+		
+		// 增加的方法前4个是添加到元素内部,后4个是元素外部
+		
+		// 删除dom
+		// remove 删除所有匹配的元素
+		// $("li").eq(4).remove()
+		//empty 清空匹配元素的内容，
+		// $("li").eq(4).empty()
+		// 此方法可以清空元素的所有子节点
+		$("li").empty()
+	})
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Square(length){
+		this.length= length;
+	}
+	Square.prototype.getArea = function(){
+		return this.length*this.length
+	}
+	Square.prototype.getRoundLength = function(){
+		return this.length*4
+	}	
+	function Rectangle(length,width){
+		Square.call(this,length) //继承属性
+		this.width = width
+	}
+	Rectangle.prototype = new Square()
+	Rectangle.prototype.getRectArea=function(){
+		return this.width*this.length
+	}
+	Rectangle.prototype.getRectRound=function(){
+		return (this.width+this.length)*2
+	}
+	
+	
+	let rect = new Rectangle(10,8)
+	// rect.judge()
+	let getarea,getround
+	
+	if(rect.length == rect.width){
+		getarea = rect.getArea()
+		getround = rect.getRoundLength()
+		
+	}else{
+		getarea = rect.getRectArea()
+		getround = rect.getRectRound()
+		
+	}
+	console.log(getarea,getround)
+	
+	
+</script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 300px;
+				height: 300px;
+				background-color: aquamarine;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">变色</button>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>
+<script src="../js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(()=>{
+		// a.添加一个全局函数
+		jQuery._fun = function(){
+			console.log("111")
+		}
+		$._fun()
+		
+		//b.添加多个全局函数
+		$.fun1=function(){
+			console.log("fun1")
+		}
+		$.fun2=function(){
+			console.log("fun2")
+		}
+		$.fun1()
+		$.fun2()
+		
+		// -----------------------------------------------------------------------------------
+		// c. 使用jQuery.extend()添加全局函数  常用
+		// $.extend({
+		// 	sayNight:function(str){
+		// 		console.log(str+"说：晚安")
+		// 	},
+		// 	sayAfternoon:function(str){
+		// 		console.log(str+"说：午安")
+		// 	}
+		// })
+		// $.sayNight("梓曦")
+		// $.sayAfternoon("佳")
+		
+		// --------------------------------------------------------------------------------------
+		// d.命名空间
+		// 在jquery的命名空间,禁止使用js函数名和变量名,但仍然不哭避免某些函数名或变量名和jquery插件冲突,
+		// 因此,我们习惯将一些方法封装到另一个 --自定义命名空间中--
+		//解决命名危机
+		$._myFun = {
+			sayNight:function(){
+				console.log("梓曦：晚安")
+			},
+			sayAfternoon:function(){
+				console.log("小佳：午安")
+				$._myFun.sayNight()
+			}
+		}
+		
+		$._myFun.sayAfternoon()
+		
+		$._myFun1 = {
+			sayNight:function(){
+				console.log("晚安")
+			},
+			sayAfternoon:function(){
+				console.log("午安")
+			}
+		}
+		$._myFun1.sayNight()
+		$._myFun1.sayAfternoon()
+		
+		//$.fn.extend() 
+		//fn   DOM对象
+		//$.fn.extend()  拓展的是jQuery对象（原型），例如，$("div")或 $("#box")的方法
+		$.fn.extend({
+			changeColor:function(){
+				$(this).css({backgroundColor:"red"})
+			}
+		})
+		
+		$("#btn").click(function(){
+			$("#box").changeColor()
+		})
+		
+	})
+	
+</script>

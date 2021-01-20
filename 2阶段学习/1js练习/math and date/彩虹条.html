@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            height: 50px;
+            width: 300px;
+            margin-top: 10px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+    var str='0123456789abcdef'
+    var li=document.getElementsByTagName('li')
+    var bk='#'
+    for(var j=0; j<li.length; j++){
+        bk='#'
+        for(var i=0; i<6; i++){
+            bk += str.charAt(rand(0,str.length-1))
+        }
+        console.log(bk)
+        li[j].style.backgroundColor=bk;
+    }
+
+    // 随机函数
+    function rand(min,max){
+       return parseInt(Math.random()*(max-min)+min)
+    }
+</script>

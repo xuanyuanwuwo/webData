@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		div{
+			width: 406px;
+		}
+		ul{
+			list-style: none;
+			display: none;
+			margin: 0;
+			padding: 0;
+			
+		}
+		input{
+			width: 400px;
+			height: 30px;
+			border-radius: 10px;
+			border-color: lightgrey;
+		}
+		
+	</style>
+	<body>
+		<div id="">
+			<input type="text" />
+			<ul>
+				
+			</ul>
+		</div>
+			
+	</body>
+</html>
+<script type="text/javascript">
+	let ip = document.querySelector('input')
+	let ul = document.querySelector('ul')
+	ip.oninput = function(){
+		// if(ul.innerHTML != '' ){
+		// 	ul.style.display = "block" ;
+		// 	ul.style.border = "2px solid black";
+		// }
+		if(this.value !=""){
+			let script = document.createElement('script')
+			script.src = "http://suggestion.baidu.com/su?wd="+this.value+"&cb=fun" 
+			document.body.appendChild(script)
+		}
+		if(this.value == ''){
+			ul.style.display = "none"
+		}
+	}
+	// ip.onclick = function(){
+	// 	if(ul.innerHTML != '' ){
+			
+	// 	}
+	// }
+	// ip.onblur = function(){
+	// 	ul.style.display = "none" 
+	// }
+	// // 通过事件委托
+	// ul.onmouseover = function(evt){
+	// 	let e = evt||event
+	// 	// 获取事件源
+	// 	let target = e.target || e.srcElement
+	// 	if(target.tagName == 'LI'){
+	// 		target.style.color = 'red'
+	// 		ul.onmouseout=function(){
+	// 		    target.style.color=''
+	// 		}
+	// 		// ul.onclick =function(){
+	// 		// 	ip.value=target.innerText
+	// 		// }
+	// 	}
+	// }
+	
+	function fun(str){
+		// 判断是否有内容，来决定ul是否显示，而不是事件来决定，更加的方便
+		if(str !=""){
+			// 当input中最后的value值完全删除以后，值为空，不会再请求百度接口，但最后一次返回的数据已经存在，所以ul依然有内容，
+			// 此时需要在输入框判定，input没有输入内容时，不会再请求接口数据
+			ul.style.display = "block" ;
+			ul.style.border = "2px solid black";
+		}
+		let strhtml=""
+		for(let i in str.s){
+			strhtml += `<li>${str.s[i]}</li>`
+		}
+		ul.innerHTML = strhtml
+	}
+	// 如何抓取接口
+	// 必须清楚接口数据的格式
+	// 必须了解回调函数的key
+</script>
+
+
+<!-- <script src="jsonp.php?cb=fun" charset="utf-8"></script> -->
+<!-- <script src="http://" charset="utf-8"></script> -->
+<!-- 访问百度搜索引擎 -->
+<!-- http://suggestion.baidu.com/su?wd=#content#&cb=window.baidu.sug -->
+<!-- content是关键字，也就是你要搜索的词 -->
+<!-- window.baidu.sug  是你将要使用的回调函数名字，可以改成自己需要的名字 -->
+<!-- <script src="http://suggestion.baidu.com/su?wd=青青子衿&cb=fun"></script> -->

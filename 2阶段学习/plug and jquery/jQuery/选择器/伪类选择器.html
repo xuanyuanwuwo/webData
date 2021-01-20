@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="">
+			hon
+		</div>
+		<div id="">
+			dsajh
+		</div>
+		<div id="ye">
+			ssdasd
+		</div>
+		<div id="hu" class="lai">
+			只要你过得比我好
+		</div>
+		<div id="shuo" class="lai">
+			慕梓梧桐
+		</div>
+		
+		<div id="ba" class="lai">
+			青山常在
+		</div>
+	</body>
+</html>
+<script src="js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	//伪类选择去
+	$(()=>{
+		//even偶数行
+		// $("div:even").css({backgroundColor:"orange"})
+		
+		//odd奇数行
+		// $("div:odd").css({backgroundColor:"yellow"})
+		
+		//first第一个
+		// $("div:first").css({backgroundColor:"red"})
+		
+		//last最后一个
+		// $("div:last").css({backgroundColor:"blue"})
+		
+		//eq(n)选中第n个元素
+		// $("div:eq(2)").css({backgroundColor:"purple"})
+		// 也可以下面这样写
+		// $("div").eq(3).css({backgroundColor:"green"})
+		
+		//除了某个元素，其他都被影响
+		// $("div:not('#hu')").css({backgroundColor:"purple"})
+		// 两一种写法
+		// $("div").not('#shuo').css({backgroundColor:"pink"})
+		
+		// 匹配大于n的元素
+		$("div:gt(3)").css({backgroundColor:"skyblue"})
+		// 匹配小于n的元素
+		$("div:lt(3)").css({backgroundColor:"gray"})
+	})
+</script>

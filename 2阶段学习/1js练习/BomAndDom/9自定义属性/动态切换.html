@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+            height: 200px;
+            /* background: url(./img/美少女.jpg) no-repeat; */
+            /* background-size: 100% 100%;  */
+            /* display: block; */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="radio" name="radio" id="young_girl"><label for="young_girl">美少女</label>
+    <input type="radio" name="radio" id="beauty">    <label for="beauty">美女</label>
+    <img id="image"/>
+</body>
+</html>
+<script>
+    var young_girl = document.getElementById('young_girl')
+    var beauty = document.getElementById('beauty')
+    var box=document.getElementById('image')
+    beauty.onclick=function(){
+        // box.setAttribute('src','./img/美女.jpg')
+        box.src='./img/美女.jpg'        //img默认有src所以可以直接赋予
+    }
+    young_girl.onclick=function(){
+        box.setAttribute('src','./img/美少女.jpg')
+    }
+</script>

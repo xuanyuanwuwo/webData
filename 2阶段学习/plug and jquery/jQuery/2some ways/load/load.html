@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+	</head>
+	
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#container{
+			width: 900px;
+			margin: 0 auto;
+		}
+		ul{
+			list-style: none;
+		}
+		li{
+			background-color: #FF4500;
+			border-right: 1px solid white;
+			text-align: center;
+			height: 30px;
+			line-height: 30px;
+		}
+		section{
+			margin-top: 100px;
+		}
+	</style>
+	<body>
+		<div id="container">
+			<header class="mui-bar mui-bar-nav">
+				
+			</header>
+			<section>
+				
+			</section>
+			<footer>
+				
+			</footer>
+		</div>
+		
+	</body>
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(()=>{
+		// load:通常从本地获取一些静态文件,异步操作,如果想要加载后取值,需要用回调函数
+		//load(url,data,callback)
+		//ulr,如果只想要某个元素，url中加空格，加上元素标签或类名
+		// load加载时可传入data，不过load一般用来引入html文件，传参无法解析也没有意义，
+		//传送方式自动根据data判定，不传值data为空时，方式是get，有值时默认为post
+		//回调函数有3个参数，callback(responsetext,textStatus,XMLHttpRequest)
+		//responsetext,返回的数据，textStatus请求状态，XMLHttpRequest对象，一般只需要第一个
+		//在load中，无论ajax是否请求成功，只要请求完成，就会执行回调函数
+		$("header").load("header.html .ul",(res)=>{
+			for(let i=0; i<$("li").length;i++){
+				console.log($("li").eq(i).html())
+			}
+			console.log(res) 
+			
+		})
+		$("footer").load("header.html .ul-two")
+	})
+</script>

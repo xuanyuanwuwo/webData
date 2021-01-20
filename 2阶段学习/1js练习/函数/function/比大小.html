@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 比较三个数大小，按顺序排列
+    // 先找出其中最大值，再找出其中最小值
+    // var x,y,z,t,m,n
+    // x = 18;
+    // y = 20;
+    // z = 44;
+    // function fun(x,y,z){
+    //     t= x>y?x:y;
+    //     t = t>z?t:z
+    //     // console.log(t);
+    //     m = y<x?y:x;
+    //     m = m<z?m:z;
+    //     // console.log(m)
+    //     n =x+y+z-m-t
+    //     console.log(t,n,m)
+
+
+    // }
+    // fun(x,y,z)
+
+    var i=1932
+    // 输入一个四位数，用每位数加5除以10的余数代替
+    function test(i){
+        var q = parseInt(i/1000)
+        var b = parseInt(i/100%10)
+        // console.log(i/100%10)
+        var s = parseInt(i/10%10)
+        var g = i%10
+        // console.log(q,b,s,g)
+
+        q = (q+5)%10
+        b = (b+5)%10
+        s = (s+5)%10
+        g = (g+5)%10
+        // console.log(q,b,s,g)
+    // 然后把第一位和第四位交换，第二位和第三位交换
+        var m,n;
+        m = q
+        q = g
+        g = m
+
+        n = b
+        b = s
+        s= n
+        // console.log(q,b,s,g)
+        return q*1000+b*100+s*10+g
+
+    }
+    var a=test(i)
+    console.log(a)
+
+    // 闰年
+    var year=2021
+    function time(clock){
+        if((year%4==0 && year%100 !=0) || year%100==0){
+            return true
+        }else{
+            return false
+        }
+    }
+    function main(year){
+        var sli=time(year)
+        if(sli=true){
+            console.log('润')
+        }else{
+            console.log('fei')
+        }
+    }
+    main(year)
+</script>

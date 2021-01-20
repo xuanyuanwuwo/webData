@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// 继承加拷贝
+	
+	function Birthday(y,m,d){
+		this.y = y;
+		this.m = m;
+		this.d = d
+	}
+	function Animal(bir){
+		this.bir = bir
+	}
+	function Person(name){
+		this.name = name
+	}
+	//继承
+	//一个类的属性是引用类型
+	Person.prototype = new Animal(new Birthday(1996,8,6))
+	// 拷贝构造
+	Person.prototype.clone =function(){
+		let s = new Person()
+		s.bir = new Birthday(this.bir.y,this.bir.m,this.bir.d)
+		return s
+	}
+	
+	
+	let p =new Person("梓曦")
+	// 浅拷贝:浅拷贝的数据更改，相当于拷贝了一把钥匙(只是ip)直接去对方家里搞破坏，原来的数据也会更改
+	let p1 = p
+	p1.bir.d = 10
+	console.log(p.bir.d)
+	console.log(p1.bir.d)
+	
+	
+	// 深拷贝：深拷贝的数据更改，相当于在对方家里挖了一个地下室(空间)，把地上的东西都复制后自己更改，原来的数据并不会更改
+	let p2 = p.clone()
+	p2.bir.d = 6
+	console.log(p.bir.y,p.bir.m,p.bir.d)
+	console.log(p2.bir.y,p2.bir.m,p2.bir.d)
+</script>

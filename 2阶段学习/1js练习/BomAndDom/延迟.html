@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <button id="start">开始</button>
+    <button id="end">停止</button>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var oStart = document.getElementById('start');
+    var oEnd = document.getElementById('end');
+    var oBox = document.getElementById('box');
+    var time=null
+    oStart.onclick = ()=>{
+        time=setTimeout(() => {
+            oBox.style.display='none'
+        }, 3000);
+    }
+    // 终止延迟
+    oEnd.onclick=()=>{
+        clearTimeout(time)
+    }
+</script>

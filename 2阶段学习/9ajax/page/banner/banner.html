@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #banner{
+            width: 400px;
+            height: 200px;
+            /* background: url(./img/哞哞.jpg) no-repeat; */
+            background-size: 100% 100%;
+            position: relative;
+        }
+        button{
+            position: absolute;
+            top: 100px;
+            /* background-color: red; */
+            color: silver;
+            border: none;
+            /* margin-top: -50%px; */
+
+        }
+        #previou{
+            left: 10px;
+        }
+        #next{
+            right: 10px;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+            bottom: 10px;
+            left: 200px;
+            margin-left: -35%;
+        }
+        li{
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            float: left;
+            margin: 0 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <button id="previou"><</button>
+        <button id="next">></button>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    class Banner{
+        constructor(newOimg,newOli){
+            this.oimg=newOimg;
+            this.oli=newOli;
+            this.index=0;
+            this.oimg.style.backgroundImage="url(img/"+this.index+".jpg)";
+            this.oli[this.index].style.backgroundColor="red"
+        }
+        // 设置背景图
+        setImage(){
+            this.oimg.style.backgroundImage="url(./img/"+this.index+".jpg)";
+        }
+        // 设置li背景颜色
+        setLicolor(){
+            for(let i=0; i<this.oli.length; i++){
+                if(i==this.index){
+                    this.oli[i].style.backgroundColor="red"
+                }else{
+                    this.oli[i].style.backgroundColor="black"
+                }
+            }
+        }
+
+        nextImage(){
+            this.index++
+            if(this.index==this.oli.length){
+                this.index=0
+            }
+            this.setImage()
+            this.setLicolor()
+        }
+        previouImage(){
+            this.index--
+            if(this.index==-1){
+                this.index=this.oli.length-1
+            }
+            this.setImage()
+            this.setLicolor()
+        }
+        // li点击事件
+        oliclik(){
+            let that=this
+            for(let i=0; i<this.oli.length; i++){
+                this.oli[i].onclick=function(){
+                    that.index=i
+                    that.setImage()
+                    that.setLicolor()
+                }
+            }
+        }
+        // 左右点击事件
+        eventBind(){
+            let previou=document.getElementById('previou')
+            let next=document.getElementById('next')
+            let that=this
+            previou.onclick=function(){
+                that.previouImage()
+            }
+            next.onclick=function(){
+                that.nextImage()
+            }
+        }
+
+
+    }
+
+    let oimg=document.getElementById('banner')
+    let oli=document.getElementsByTagName('li')
+
+    let banner=new Banner(oimg,oli)
+    banner.eventBind()
+    banner.oliclik()
+</script>

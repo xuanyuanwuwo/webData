@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 类的创建
+    function Student(newName,newAge){
+        // 添加属性
+        this.name=newName;
+        this.age=newAge
+
+        // 添加行为--方法
+        // 此时，构造方法中的this，代表对象本身
+        this.eat=function(){
+            console.log('eat')
+        }
+        this.run=function(){
+            console.log(this.age)
+        }
+    }
+
+    // 对象的创建
+    let stu=new Student('long','16')
+    console.log(stu.name)
+    stu.eat()
+
+    let stu1=new Student('大黄','35')
+    stu1.run()
+</script>

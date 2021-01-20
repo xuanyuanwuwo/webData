@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #banner{
+            width: 400px;
+            height: 200px;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        button{
+            position: absolute;
+            top: 100px;
+            color: silver;
+            border: none;
+        }
+        #previou{
+            left: 10px;
+        }
+        #next{
+            right: 10px;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+            bottom: 10px;
+            left: 200px;
+            margin-left: -35%;
+        }
+        li{
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            float: left;
+            margin: 0 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <button id="previou"><</button>
+        <button id="next">></button>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    class Banner{
+        constructor(newOimg,newOli){
+            this.img=newOimg;
+            this.li=newOli;
+            this.index=0;
+            this.img.style.backgroundImage="url(./img/"+this.index+".jpg)"
+            this.li[this.index].style.backgroundColor='red'
+        }
+        // 设置背景图
+        steImg(){
+            this.img.style.backgroundImage="url(./img/"+this.index+".jpg)"
+        }
+        // 设置li背景颜色
+        setli(){
+            for(let i=0; i<this.li.length; i++){
+                if(i==this.index){
+                    this.li[i].style.backgroundColor='red'
+                }else{
+                    this.li[i].style.backgroundColor='black'
+                }
+            }
+        }
+        // 下一个
+        nextImg(){
+            this.index++;
+            if(this.index==this.li.length){
+                this.index=0
+            }
+            this.steImg()
+            this.setli()
+        }
+        // 上一个
+        previouImg(){
+            this.index--;
+            if(this.index==-1){
+                this.index=this.li.length-1
+            }
+            this.steImg()
+            this.setli()
+        }
+        // li点击事件
+        oliclick(){
+            let that=this
+            for(let i=0; i<this.li.length; i++){
+                this.li[i].onclick=function(){
+                    that.index=i
+                    that.steImg()
+                    that.setli()
+                }
+            }
+        }
+        // 左右点解事件
+        eventBind(){
+            let previou=document.getElementById('previou')
+            let next=document.getElementById('next')
+            let that=this
+            previou.onclick=function(){
+                that.previouImg()
+            }
+            next.onclick=function(){
+                that.nextImg()
+            }
+        }
+    }
+
+    let oimg=document.getElementById('banner')
+    let oli=document.getElementsByTagName('li')
+
+    let banner=new Banner(oimg,oli)
+    banner.eventBind()
+    banner.oliclick()
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		包装集<br>
+		jQuery的世界中所有的对象，无论是一个还是一组，$()返回的都是一个集合<br>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript">
+	// jQuery和js是两种不同的api
+	$(()=>{
+		let box = $("#box")
+		// box.innerHTML = "666"  错误的，无法赋予内容
+		console.log(box)
+		box.html(666)  
+		
+		// jQuer和原生js相互转换
+		// jQuery -> 原生
+		let jsobj = box[0]		//box.get(0)
+		jsobj.innerHTML = "777"
+		//原生 -> jQuery
+		let newjq = $(jsobj)
+		newjq.html('999')
+	})
+	
+</script>

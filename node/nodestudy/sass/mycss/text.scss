@@ -1,0 +1,49 @@
+@charset "utf-8";   //中文协议 ，写在文件顶部
+//基本语法
+//注释，变量名就是文本替换
+//普通变量  $开头
+$myHeight: 50px;
+$myColor: red;
+$myFont: 14px;
+#box{
+    width: 100px;
+    height: $myHeight;
+    color: $myColor;
+    font-size: $myFont;
+}
+
+//特殊变量 如变量藏着字符串中，则需要加 #{} ，如
+$myFontSize:size;
+#box1{
+    width: 100px;
+    height: $myHeight;
+    color: $myColor;
+    font-#{$myFontSize}: $myFont;
+}
+
+//默认变量 加 !default 如果有另外一个值，则默认是另外一个
+$color: blue;
+$color: skyblue !default;
+#box2{
+    background-color: $color;
+    height: 300px;
+}
+//计算功能
+#box3{
+    background-color: $color;
+    height: $myHeight;
+    width: 2*30px;
+}
+
+//函数嵌套
+#box4{
+    background-color: black;
+    height: 30px;
+    line-height: 30px;
+    a {
+        color: white;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}

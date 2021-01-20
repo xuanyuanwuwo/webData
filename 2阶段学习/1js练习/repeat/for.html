@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // var x = 1
+    // var sum = 0
+    // while(x<=100){
+    //     sum += x;
+    //     x++
+    // }
+    // console.log(sum,x)
+    // 语法格式
+    // for(语句1,语句2，语句3){
+    //     语句4
+    // }
+    // 语句1: 变量定义
+    // 语句2：循环条件，判断
+    // 语句3: 使循环趋向于结束的条件、
+    // 语句4: 循环体 
+    // var str=0
+    // for(var i=1;i<=100;i++){
+    //     str += i
+    // }
+    // console.log(str,i)
+
+    // 知道循环次数用while，不知道循环次数可用while，至少循环一次用do,while
+    // 循环嵌套
+    // for(var i=1; i<=5; i++){
+    //     for(var j=1; j<=5; j++){
+            
+    //         document.write('*')
+               
+    //     }
+    //     document.write('<br>')
+    // }
+    // // 乘法表
+    // for(var x=1; x<=9; x++){
+    //     for(var y=1; y<=x; y++){
+    //         document.write(y+'*'+x+'='+x*y)
+    //     }
+    //     document.write('<br>')
+    // }
+
+    // 水仙花数
+    for(var x=1; x<=9;x++){
+        for(var y=0; y<=9; y++){
+            for(var z=0; z<=9; z++){
+                if(x*x*x+y*y*y+z*z*z==Number(x+''+y+z)){
+                    document.write(x+''+y+z+'<br>')
+                }
+            }
+        }
+    }
+</script>

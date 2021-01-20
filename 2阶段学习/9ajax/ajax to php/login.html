@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="txt" />
+	</body>
+</html>
+<script type="text/javascript">
+	let txt = document.getElementById('txt')
+	txt.onblur= function(){
+		let xhr =new XMLHttpRequest()
+		xhr.open('GET','2server.php?username='+txt.value,true)
+		xhr.onreadystatechange = function(){
+			// status服务器状态 200服务器准备好
+			// readyState是xhr的状态 4是xhr加载完毕
+			if(xhr.status == 200 && xhr.readyState == 4){
+				xhr.responseText
+			}
+		}
+		xhr.send()
+	}
+	
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #small{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: orangered;
+        }
+        div{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button>开始</button>
+    <div>
+        <div id="small"></div>
+    </div>
+</body>
+</html>
+<script>
+    let but=document.querySelector('button')
+    let small=document.getElementById('small')
+    let time=null
+    but.onclick=function(){
+        clearInterval(time)
+        time=setInterval(() => {
+            small.style.left=small.offsetLeft+10+'px'
+            let ofl=window.innerWidth-small.offsetWidth
+            if(small.offsetLeft>=ofl){
+                clearInterval(time)
+                // small.style.left=ofl+'px'
+            }
+        }, 50);
+    }
+</script>

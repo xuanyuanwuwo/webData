@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <button id="add">增加</button>
+    <button id="delete">删除</button>
+
+</body>
+</html>
+<script>
+    // createElement 节点创建
+    // var oh=document.createElement('h3')
+    // oh.innerHTML='咏鹅'
+    // // 添加appendChild
+    // document.body.appendChild(oh)
+    
+
+    // var op=document.createElement('p')
+    // op.innerHTML='鹅鹅鹅，曲项向天歌'
+    // document.body.appendChild(op)
+
+    // 节点删除
+
+    var list =document.getElementById('list')
+    var add=document.querySelector('#add')
+    var del=document.querySelector('#delete')
+
+    del.onclick=function(){
+        if(list.hasChildNodes()){//判断当前元素内是否存在子节点
+            // 删除某个节点
+            // list.removeChild(list.lastElementChild)
+            list.lastElementChild.remove()
+        }
+    }  
+
+    //节点插入,插在哪个节点之前 insertBefore(目标节点，参照节点)
+    var oLi=document.createElement('li')
+    oLi.innerHTML='666666'
+    list.insertBefore(oLi,list.children[3]) //children
+
+
+    // 动态创建
+    add.onclick = function(){
+        var li =document.createElement('li')
+        li.innerHTML='888'
+        list.appendChild(li)
+    }
+</script>

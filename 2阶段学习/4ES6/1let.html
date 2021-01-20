@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // let
+    // a 块级作用域
+    {
+        var a=123
+        let b=234
+    }
+    console.log(a)
+    // console.log(b)//not derfind
+
+    for(let i=0; i<10; i++){
+        console.log(i)
+    }
+    // console.log(i) //not derfind
+
+    // b 暂时性死去
+
+    let x=123
+    {
+        let x=45456
+        console.log(x)
+    }
+    console.log(x)
+
+
+    // c 不存在变量提升
+    // console.log(aa) //xxx
+    let aa='sss'
+
+    //不允许重复定义
+    // let y='jjj'   xxx
+    let y='kkk'
+    console.log(y)
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// apply call
+	function Stu1(chinese_score){
+		this.chinese = chinese_score
+	}
+	
+	Stu1.prototype.id = function(){
+		console.log('9527')
+	}
+	function Stu2(Math_score,chinese_score){
+		this.math = Math_score
+		// 借用另外一个类的构造方法
+		Stu1.call(this,chinese_score) 
+		// Stu1.apply(this,[chinese_score]) 
+		// 此时调用的是Stu1（），但this指向Stu2，给stu1传入的参数也是Stu2的参数
+		// 此时Stu2也拥有了this.chinese
+	}
+	let stu2 = new Stu2(120,110)
+	console.log(stu2.chinese)
+	//stu2.id()//错误，call严格来说不是真正意义的继承，无法继承方法，此时需要混合继承
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		 jQuery引入（两种方式）<br>
+		 引入本地 <br>
+		 cdn引入	<br>
+		 <hr >
+		$==jQuery 相当于函数初始化，整个页面加载完成后立即执行<br>
+	   $(function(){})  是 $(document).read(function(){}) 的简写
+	   <hr >
+	   $(document).read(function(){})和window.onload的区别<br>
+	   read 表示文档已加载完成（不包括图片，视频等非文字媒体文件）<br>
+	   onload 表示页面包含图片在内的所有元素加载完成<br>
+	   $(document).read(function(){}) 比 window.onload先执行
+	   
+	   <hr >
+	   
+	</body>
+</html>
+<!-- jquery环境配置 -->
+<!-- <script src="../js/jQuery.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript">
+	// $(document).read(function(){})
+	$(()=>{
+		console.log('heiei')
+	})
+</script>

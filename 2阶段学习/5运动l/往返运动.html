@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: orangered;
+        }
+        div{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="go(500)">开始</button>
+    <button onclick="go(0)">回来</button>
+    <div>
+        <div id="box"></div>
+    </div>
+</body>
+</html>
+<script>
+    let box=document.getElementById('box')
+    let time=null
+    function go(num){
+        clearInterval(time)
+        time=setInterval(() => {
+            let ofl=box.offsetLeft<num?10:-10
+            box.style.left=box.offsetLeft+ofl+'px'
+            if(box.offsetLeft>=500){
+                clearInterval(time)
+                box.style.left=500+'px'
+            
+            }
+            else if(box.offsetLeft<=0){
+                clearInterval(time)
+                box.style.left=0+'px'
+            }
+        }, 50);
+    }
+</script>

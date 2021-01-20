@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// ajax封装和兼容
+	// 参数
+	// type
+	// URL
+	// data
+	// isAsyn
+	// callback
+	// function ajax(type,url,data,isAsyn,callback){
+	// 	let xhr
+	// 	// 兼容
+	// 	if(window.ActiveXObject){
+	// 		// ie
+	// 		xhr = new ActiveXObject("Microsoft XMLHttp")
+	// 	}else{
+	// 		// 非ie
+	// 		xhr  = new XMLHttpRequest()
+	// 	}
+		
+	// 	// 将类型固定化(变小写)
+	// 	type = type.toLowerCase()
+		
+	// 	if(type=='get'){
+	// 		let urllink = url
+	// 		if(data !=''){
+	// 			urllink += "?"+data
+	// 		}
+	// 		xhr.open(type,urllink,isAsyn)
+	// 		xhr.send()
+	// 	}else{
+	// 		xhr.open(type,url,isAsyn)
+	// 		xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+	// 		xhr.send(data)
+	// 	}
+	// 	xhr.onreadystatechange = function(){
+	// 		if(xhr.status == 200 && xhr.readyState == 4){
+	// 			callback(xhr.responseText)
+	// 			// console.log(xhr.responseText)
+	// 			console.log(xhr.readyState)
+
+	// function fun(str){
+	// 	console.log(str)
+	// }
+	
+	// ajax('get','package.php','name=laowang',true,fun)
+	// ajax('post','package.php','name=jiajia',true,fun)
+	class Ajax{
+		constructor(ajaxobj) {
+		   this.obj = ajaxobj
+		}
+		ajax(){
+			let xhr
+			// 兼容
+			if(window.ActiveXObject){
+				// ie
+				xhr = new ActiveXObject("Microsoft XMLHttp")
+			}else{
+				// 非ie
+				xhr  = new XMLHttpRequest()
+			}
+			this.obj.type = this.obj.type.toLowerCase()
+			if(this.obj.type=='get'){
+				let urllink = this.obj.url
+				if(this.obj.data !=''){
+					urllink += "?"+this.obj.data
+				}
+				console.log('11')
+				xhr.open(this.obj.type,urllink,this.obj.isAsyn)
+				xhr.send()
+			}else{
+				xhr.open(this.obj.type,this.obj.url,this.obj.isAsyn)
+				xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+				xhr.send(this.obj.data)
+			}
+			let that = this
+			xhr.onreadystatechange = ()=>{
+				if(xhr.status == 200 && xhr.readyState == 4){
+					that.obj.callback(xhr.responseText)
+				}
+			}
+		}
+		
+	}
+	function fun(str){
+		console.log(str)
+	}
+	new Ajax({
+		type:'get',
+		url:'package.php',
+		data:'name=梓熙',
+		isAsyn: true,
+		callback: fun,
+	}).ajax()
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        
+    </ul>
+</body>
+</html>
+<script>
+    var oul=document.querySelector('ul');
+    // 传统字符串拼接
+    var str='剑圣'
+    oul.innerHTML=
+                '<li>'+str+'</li>'+
+                '<li>'+345+'</li>'+
+                '<li>'+666+'</li>'+
+                '<li>'+777+'</li>'
+    
+    // ES6新增字符串模板(``)
+    // 拼接变量需要用${}
+    oul.innerHTML=`<li>${str}</li>
+                    <li>33</li>
+                    <li>44</li>
+                    <li>555</li>`
+
+</script>

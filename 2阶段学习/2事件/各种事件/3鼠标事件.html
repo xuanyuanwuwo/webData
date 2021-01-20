@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./index.js"></script>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: url(./jup.jpg) no-repeat;
+            background-size: cover;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+</html>
+<script src="./move封装.js"></script>
+<script>
+    // pageX,pageY鼠标距离整个页面的x,y距离
+    // clientX,clientY  距离窗口
+    // offsetX,offsetY  距离容器
+    document.onclick=(evt)=>{
+        var e = evt || event
+        console.log(e.clientX,e.clientY,e.offsetX)
+        
+    }
+
+    // 拖拽效果
+    // var box=document.getElementById('box')
+    // box.onmousedown=function(){
+    //     // var e= evt || event
+    //     // var x=e.offsetX
+    //     // var y=e.offsetY
+    //     document.onmousemove=(evt)=>{
+    //         var e= evt || event
+    //         // var x=window.innerWidth-
+
+    //         box.style.top=e.pageY-box.offsetHeight/2+'px'
+    //         box.style.left=e.pageX-box.offsetWidth/2+'px'
+    //     }
+    //     document.onmouseup=()=>{
+    //         document.onmousemove=null
+    //     }
+    // }
+
+    var box=document.getElementById('box')
+    
+    fun(box)
+</script>

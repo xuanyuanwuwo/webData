@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p></p>
+	</body>
+</html>
+<script type="text/javascript">
+	// 语法
+	//1 创建ajax对象
+	let xhr = new XMLHttpRequest()
+	//2 调用open方法open(传递方式(get或post),地址(url),是否使用异步(true或false))
+	xhr.open('GET','同步和异步.html',true)
+	// 3 调用函数（想干啥）
+	xhr.onreadystatechange = function(){
+		if(xhr.status==200 && xhr.readyState==4){
+			// 5 分析数据，回复信息
+			fun(xhr.responseText)  
+		}
+	}
+	// 4 send 发送请求
+	xhr.send()
+	
+	
+	function fun(str){
+		let p = document.querySelector('p')
+		// 把后台返回的值赋予前台
+		p.innerHTML= str
+	}
+	
+	let xhr = new XMLHttpRequest
+	xhr.open('GET','url'(正常是php),true)
+	xhr.onreadystatechange = function(){
+		if(xhr.status==200 && xhr.readyState == 4){
+			fun(xhr.responseText)
+		}
+	}
+	xhr.send()
+	
+	function fun(text){
+		console.log(text)
+	}
+</script>

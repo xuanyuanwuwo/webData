@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>11</li>
+			<li>22</li>
+			<li>33</li>
+			<li>44</li>
+			<li>55</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	let oList = document.getElementsByTagName("li")
+	// for(var i=0; i<oList.length;i++){
+	// 	// 此时会报错，因为var没有块级作用域,当点击事件触发时，
+	// 	// i已经到了最后一次i++，每次循环的数据都会销毁，没有保留
+	// 	oList[i].onclick=function(){
+	// 		console.log(oList[i].innerHTML)
+	// 	}
+	// }
+	for(let i=0;i<oList.length;i++){
+		// let有块级作用域，每次数据都会保留，
+		oList[i].onclick=function(){
+			console.log(oList[i].innerText)
+		}
+	}
+</script>

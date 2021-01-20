@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 面向对象的思维方式
+    // 1.分析有几个对象
+    // 2.抽象出对象所拥有的属性和行为 
+    class Road{
+        constructor(length){
+            this.length=length
+        }
+    }
+    class Bus{
+        constructor(newSpeed){
+            this.speed=newSpeed
+        }
+        // 一个类的实例化对象作为另一个类的参数
+        time(road){
+            this.ti=road.length/this.speed
+            console.log(this.ti)
+        }
+    }
+    let road=new Road('1000')
+    let bus=new Bus('60',road)
+    bus.time(road)
+   
+
+
+    class Poker{
+        constructor(newColor,newCard){
+            this.color=newColor;
+            this.card=newCard
+        }
+    }
+    class Hand{
+        constructor(newPoker){
+            this.poker=newPoker
+        }
+    }
+    class Persen{
+        constructor(leftHand,rightHand){
+            this.left=leftHand;
+            this.right=rightHand
+        }
+        showValue(){
+            console.log(this.left.poker.color,this.left.poker.card)
+            console.log(this.right.poker.color,this.right.poker.card)
+        }
+        swapValue(){
+            let t = this.left.poker
+            this.left.poker = this.right.poker
+            this.right.poker = t
+            // console.log(this.left.poker.color,this.left.poker.card)
+            // console.log(this.right.poker.color,this.right.poker.card)
+        }
+    }
+    let poker1 = new Poker('red','A')
+    let poker2 = new Poker('black','K')
+    let hand1 = new Hand(poker1)
+    console.log(hand1.poker.card)
+    let hand2 = new Hand(poker2)
+    let ps=new Persen(hand1,hand2)
+    console.log(ps.left.poker.card)
+    ps.showValue()
+    ps.swapValue()
+    ps.showValue()
+
+    // class Ming{
+    //     constructor(newLeft,newRight){
+    //         this.left=newLeft;
+    //         this.right=newRight
+    //     }
+    //     swap(poker){
+    //         this.left=poker.red
+    //         this.right=poker.black
+    //         let t=this.left
+    //         this.left=this.right
+    //         this.right=t
+    //         console.log(this.left,this.right)
+    //     }
+    // }
+    // class Poker{
+    //     constructor(newRed,newBlack){
+    //         this.red=newRed;
+    //         this.black=newBlack        
+    //     }
+    // }
+    // let m=new Ming('lefthand','righthand')
+    // let p=new Poker('A','K')
+    // m.swap(p)
+</script>

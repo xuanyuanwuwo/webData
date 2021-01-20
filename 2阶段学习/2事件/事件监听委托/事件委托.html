@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <button>添加</button>
+</body>
+</html>
+<script>
+    // what>why>how
+    // 事件委托，通过父元素触发子元素的事件
+
+    var oUl=document.querySelector('ul')
+    oUl.onmouseover=function(evt){
+        var e=evt||event
+        // 获得事件源
+        var target=e.target||e.srcElement
+        if(target.tagName=='LI'){
+            target.style.background='red'
+        }
+
+    }
+    oUl.onmouseout=function(evt){
+        var e=evt||event
+        // 获得事件源
+        var target=e.target||e.srcElement
+        if(target.tagName=='LI'){
+            target.style.background=''
+        }
+
+    }
+    var but=document.querySelector('button')
+    but.onclick=function(){
+        var e=document.createElement('li')
+        e.innerHTML='jaijia'
+        oUl.appendChild(e)
+    }
+    
+</script>

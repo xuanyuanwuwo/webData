@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="shuo" class="lai">
+			慕梓梧桐
+		</div>
+		<div id="ba" class="lai">
+			<span id="shan">
+				青山常在
+			</span>
+		</div>
+	</body>
+</html>
+<script src="js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(()=>{
+		$("#shuo").css({display:"none"})
+		// hidden 选中不可见元素
+		$("div:hidden").css({color:"red"})
+		// visible选中课件元素的样式
+		$("div:visible").css({color:"orange"})
+	})
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">获取</button>
+	</body>
+</html>
+<script src="../../js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(()=>{
+		$("button").click(()=>{
+			$.getJSON("getJson.json",(data)=>{
+				// 遍历 each()
+				$.each(data,(index,content)=>{
+					console.log(content)
+				})
+			})
+		})
+	})
+	
+</script>

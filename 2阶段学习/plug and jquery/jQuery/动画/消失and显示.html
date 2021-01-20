@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 300px;
+				height: 300px;
+				font-size: 50px;
+				background-color: orangered;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button">消失</button>
+		<button type="button">显示</button>
+		<button type="button">消失/显示</button>
+		<div id="box">
+			你好，明天
+		</div>
+	</body>
+</html>
+<script src="../js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(()=>{
+		//普通动画
+		
+		//a方法 消失和显示
+		
+		$("button").eq(0).click(()=>{
+			// 如果想要在动画执行完之后执行某个操作,
+			//可以把回调函数作为参数
+			//hide() 消失
+			$("#box").hide(1000,()=>{
+				console.log('heh')
+			})
+			// console.log('heh')如果放在对象外面执行，动画为异步，这个操作为同步，就会先执行
+		})
+		$("button").eq(1).click(()=>{
+			// show显示
+			$("#box").show(1000)
+		})
+		
+		$("button").eq(2).click(()=>{
+			// toggle:消失/显示
+			$("#box").toggle(1000,function(){	//arguments不支持()=>
+				$("#box").toggle(1000,arguments.callee) 
+				//arguments.callee调用自身，此时相当于递归，而且没有结束条件				
+			})
+		})
+		
+	})
+</script>

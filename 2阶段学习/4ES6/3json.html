@@ -1,0 +1,42 @@
+-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>ooo</li>
+        <!-- <li></li>
+        <li></li>
+        <li></li> -->
+    </ul>
+</body>
+</html>
+<script>
+    // JSON字符串和json对象相互转化
+    // json格式字符串：将严格模式的json对象转换为字符串
+    var str='{"name":"老王","age":"30"}'
+        // {'name':'东东','age':'10'},
+        // {'name':'青儿','age':'10'}   
+
+    // oli=document.getElementsByTagName('li')
+    // for(let i=0; i<oli.length; i++){
+    //     oli[i].innerHtml=str.name
+    // }
+    oli=document.querySelector('li')
+
+    // 字符串转json对象
+    var strj =JSON.parse(str)
+    console.log(strj)
+    
+    oli.innerHTML=strj.name
+    console.log(oli.innerHTML)
+    
+    // json 对象转字符串
+    var strjson=JSON.stringify(strj)
+    console.log(typeof(strjson))
+
+</script>

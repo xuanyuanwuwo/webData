@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+            position: absolute;/*r必须*/
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var oBox =document.getElementById('box')
+    //offset只可读,值不带单位
+    // console.log(oBox.offsetWidth)
+    // console.log(oBox.offsetHeight)
+    // console.log(oBox.offsetLeft)
+    // console.log(oBox.offsetTop)
+    // style只可写
+    oBox.style.width = "200px"
+    oBox.style.height = '200px'
+    oBox.style.left = '200px'
+    oBox.style.top = '200px'
+</script>

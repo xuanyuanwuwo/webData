@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// class Student{
+	// 	constructor(score) {
+	// 	    this.score = score
+	// 	}
+	// 	page(){
+	// 		console.log(this.score)
+	// 	}
+	// }
+	// let sd = new Student('60')
+	// // 浅拷贝：只是将对象的引用id(相当于地址ip)进行复制,但并没有开辟空间
+	// let s2 = sd
+	// s2.score = '100'
+	// sd.page()
+	
+	class Student{
+		constructor(name,score) {
+			this.name = name
+		    this.score = score
+		}
+		// 深拷贝：数值和内存的双拷贝
+		// 拷贝构造方法
+		kb(){
+			// 核心：创造空间
+			let s = new Student(this.name,this.score)
+			return s
+		}
+		page(){
+			console.log(this.score)
+		}
+	}
+	let sd = new Student('梓曦','60')
+	
+	let s2 = sd.kb()
+	console.log(s2.name,'成绩'+s2.score)
+	s2.score = '100'
+	console.log(sd.score,s2.score)
+	
+	
+</script>

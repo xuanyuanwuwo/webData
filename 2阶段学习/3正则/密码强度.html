@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button id="btn">点击</button>
+</body>
+</html>
+<script>
+    var txt=document.getElementById('txt')
+    var btn=document.getElementById('btn')
+    btn.onclick=function(){
+        // 纯数字
+        var regNum=/^\d{8,11}$/
+        // 纯字母
+        var regLetter=/^[a-zA-Z]{8,11}$/
+        
+        // 包含数字
+         var regNumber=/\d+/
+        // 包含字母
+        var regZm=/[a-zA-Z]+/
+        //包含特殊字符
+        var regChar=/[!@#$%^&*]+/
+
+        var str=txt.value
+        var math=/.{8,11}/  //限制密码位数
+
+        if(regNum.test(str)||regLetter.test(str)){
+            console.log('弱')
+        }else if(regNumber.test(str)&&regZm.test(str)&&regChar.test(str)&&math.test(str)){
+            console.log('强')
+        }else{
+            console.log('中')
+        }
+    }
+</script>

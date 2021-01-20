@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		div{
+			width: 406px;
+		}
+		ul{
+			list-style: none;
+			display: none;
+			margin: 0;
+			padding: 0;
+			
+		}
+		input{
+			width: 400px;
+			height: 30px;
+			border-radius: 10px;
+			border-color: lightgrey;
+		}
+	</style>
+	<body>
+		<div >
+			<input type="text" />
+			<ul>
+				
+			</ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	let ip = document.querySelector('input')
+	let ul = document.querySelector('ul')
+	ip.oninput = function(){
+		if(this.value !=""){
+			let script = document.createElement('script')
+			// 跨域访问百度搜索引擎
+			// wb 和 cb 是百度固定字符
+			// wb 后跟关键词（需要搜索的词）
+			// cb是回调函数 后跟函数名
+			script.src = "http://suggestion.baidu.com/su?wd="+this.value+"&cb=fun" 
+			document.body.appendChild(script)
+		}
+		if(this.value == ''){
+			// 当input中最后的value值完全删除以后，值为空，不会再请求百度接口
+			// 但最后一次返回的数据已经存在，所以ul依然有内容，依然显示
+			// 所以此时需要在输入框判定，input没有输入内容时，ul不显示
+			ul.style.display = "none"
+		}
+	}
+	function fun(str){
+		// 判断是否有数据返回，来决定ul是否显示，而不是事件来决定，更加的方便
+		// 不在input处判断，是因为有时你的value，也就是关键词不为空，但却无法返回来数据，此时不能能让ul显示
+		// 例如ajhdadasidisaidsd，这种没有意思的字符，
+		if(str !=""){	
+			ul.style.display = "block" ;
+			ul.style.border = "2px solid black";
+		}
+		let strhtml=""
+		for(let i in str.s){
+			strhtml += `<li>${str.s[i]}</li>`
+		}
+		ul.innerHTML = strhtml
+	}
+</script>

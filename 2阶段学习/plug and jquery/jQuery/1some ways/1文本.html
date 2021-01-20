@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="且行且珍惜" />
+		<div id="">
+			人生没有如果，一切皆有因果
+		</div>
+	</body>
+</html>
+<script src="../js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	// 文本
+	$(()=>{
+		// 有参,为重写,无参,为读
+		// val() 
+		$("input").eq(0).val('迷鹿与你')
+		$("input").eq(0).val("一路有你")
+		console.log($("input").eq(0).val())
+		
+		//html()
+		$("div").eq(0).html('遇见你呢，三生有幸')
+		console.log('$("div").eq(0).html()')
+		
+		// 拼接字符
+		// $("div").eq(0).html(str)
+		// let str = ""
+		// str += ""
+	})
+</script>

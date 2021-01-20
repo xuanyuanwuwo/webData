@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-spacing: 0;
+        }
+        tr{
+            height: 30px;
+            line-height: 30px;
+        }
+        td{
+            width: 100px;
+            text-align: center;
+        }
+        span{
+            display: inline-block;
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>商品名称</th>
+            <th>数量</th>
+            <th>单价</th>
+            <th>小计</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>烧煎饼</td>
+            <td>
+                <button> - </button>
+                <span class="goodsNum">0</span>
+                <button> + </button>
+            </td>
+            <td>
+                单价：<span class="goodsPrice">2</span>
+            </td>
+            <td>
+                小计：<span class="goodsSum">0</span>
+            </td>
+            <td>
+                操作：<input type="button" class="delate" value="删除">
+            </td>
+        </tr>
+        <tr>
+            <td>蛋炒饭</td>
+            <td>
+                <button> - </button>
+                <span class="goodsNum">0</span>
+                <button> + </button>
+            </td>
+            <td>
+                单价：<span class="goodsPrice">10</span>
+            </td>
+            <td>
+                小计：<span class="goodsSum">0</span>
+            </td>
+            <td>
+                操作：<input type="button" class="delate" value="删除">
+            </td>
+        </tr>
+        <tr>
+            <td>水煮鱼</td>
+            <td>
+                <button> - </button>
+                <span class="goodsNum">2</span>
+                <button> + </button>
+            </td>
+            <td>
+                单价：<span class="goodsPrice">22</span>
+            </td>
+            <td>
+                小计：<span class="goodsSum">10</span>
+            </td>
+            <td>
+                操作：<input type="button" class="delate" value="删除">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                总共<span id="goods-total-num">0</span>
+                ,总价值<span id="goods-total-price" >0</span>元
+            </td>           
+        </tr>
+    </table>
+</body>
+</html>
+<script>
+    class Cart{
+        constructor(){
+
+        }
+        // 总数量
+        setGoodtotalsnum(){
+            let goodsNum = document.getElementsByClassName('goodsNum')
+            let goods_total_num = document.getElementById('goods-total-num')
+            let num = 0
+            for(let i=0; i<goodsNum.length; i++){
+                num += Number(goodsNum[i].innerHTML)
+            }
+            console.log(num)
+            goods_total_num.innerHTML = num
+        }
+        // 总价值
+        setGoodstotalPrice(){
+            let goodsSum = document.getElementsByClassName('goodsSum');
+            let goods_total_price = document.getElementById('goods-total-price')
+            let sum = 0
+            for(let i=0; i<goodsSum.length; i++){
+                sum += Number(goodsSum[i].innerHTML)
+            }
+
+            goods_total_price.innerHTML = sum
+        }
+        // 小计
+        setGoodsSum(num,price){
+            return num*price
+        }
+        // 增加
+        setGoodsAdd(btn){
+            // 获取数量
+            let goodsNum = btn.previousElementSibling
+            goodsNum.innerHTML = Number(goodsNum.innerHTML)+1
+               // 获取单价
+            let goodsPrice = btn.parentNode.nextElementSibling.firstElementChild
+            // 获取小计
+            let goodsSum = btn.parentNode.nextElementSibling.nextElementSibling.firstElementChild
+            goodsSum.innerHTML = this.setGoodsSum(goodsNum.innerHTML,goodsPrice.innerHTML)
+
+            this.setGoodtotalsnum()
+            this.setGoodstotalPrice()
+        }
+        // 减少
+        setGoodsMin(btn){
+            let goodsNum = btn.nextElementSibling
+            goodsNum.innerHTML = goodsNum.innerHTML-1
+            let goodsPrice = btn.parentNode.nextElementSibling.firstElementChild
+            let goodsSum = btn.parentNode.nextElementSibling.nextElementSibling.firstElementChild 
+            goodsSum.innerHTML = this.setGoodsSum(goodsNum.innerHTML,goodsPrice.innerHTML)
+
+            this.setGoodtotalsnum()
+            this.setGoodstotalPrice()
+        }
+        // 增减事件事件
+        eventBind(){
+            let that = this
+            let btn = document.getElementsByTagName('button')
+            for(let i=0; i<btn.length; i++){
+                btn[i].onclick = function(){
+                    if( i%2 == 0 ){
+                        that.setGoodsMin(this)
+                    }else{
+                        that.setGoodsAdd(this)
+                    }
+                }
+            }
+        }
+    }
+
+    let cart = new Cart()
+    cart.setGoodtotalsnum()
+    cart.setGoodstotalPrice()
+    cart.eventBind()
+</script>

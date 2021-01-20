@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // var date=new Date()
+    // console.log(date)
+
+    // // 把时间改为字符串
+    // function toString(d){
+    //     var _y=d.getFullYear()
+    //     var _m=d.getMonth()+1
+    //     var _d=totwo(d.getDate())
+    //     var _w=['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+    //     var _x=d.getDay()
+    //     var _s=totwo(d.getHours())
+    //     var _mi=totwo(d.getMinutes())
+    //     var _se=totwo(d.getSeconds())
+    //     var str = _y+'/'+_m+'/'+_d+'/'+_s+':'+_mi+':'+_se+' '+_w[_x]
+    //     return str 
+    // }
+    // function totwo(v){
+    //     return v<10?"0"+v:v
+    // }
+    // console.log(toString(date))
+    // console.log(date.toLocaleString())
+
+    // 把字符串改为时间
+    var str='2020-9-20,15:30:13'
+    var d=new Date(str)
+    console.log(d.toLocaleString())
+
+    // 设置时间
+    var date=new Date()
+    date.setHours(19) //其他设置类似
+    console.log(date.toLocaleString())
+    // 也可设置延长日期，一般用作kookio
+    date.setDate(date.getDate()+10)
+    console.log(date.toLocaleString())
+</script>

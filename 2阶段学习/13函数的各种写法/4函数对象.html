@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// 函数就是一个功能完整的对象
+	function Fun(){
+		var cont = 0
+		return function(){
+			cont++
+			console.log(cont)
+		}
+	}
+	let f1 =new Fun()
+	f1()
+	f1()
+	// 每次定义函数,都是对函数对象的重新创建
+	let f2 =new Fun() //创建函数对象
+	f2()
+	f2()
+	// 代码耦合性越低越好
+</script>

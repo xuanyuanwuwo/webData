@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 关联 has-a   人有生日
+    // 继承 is-a    泰迪是狗
+    // 依赖 use-a   人使用鼠标
+    class Birthday{
+        constructor(newY,newM,newD){
+            this.y=newY;
+            this.m=newM;
+            this.d=newD
+        }
+    }
+    class Student{
+        constructor(newName,newAge,newBir){ // 关联，一个类的对象，作为另一个类的属性
+            this.name=newName;  
+            this.age=newAge;
+            this.bir=newBir
+        }
+        showValue(){
+            console.log(this.bir.y)
+        }
+    }
+    let d=new Date()
+    let bir=new Birthday(d.getFullYear(),d.getMonth(),d.getDate())
+    let stu=new Student('大黄','36',bir)
+    stu.showValue()
+</script>

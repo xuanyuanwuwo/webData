@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 学习函数：关注点
+    //         1.函数的功能
+    //         2.函数的参数
+    //         3.返回值
+    var arr=[1,2,3,4,5]
+    // splice 删除     返回的是删除的值组成的数组str=[3,4]，该方法会改变原数组arr=[1,2,6,5]
+    arr.splice(2,0,' ')   
+    //第1个数代表开始下标，第2个数代表从开始往后（包括开始下标的元素）删除几个数，第三个则是要添加的元素
+    // 从下标2处开始往后删除2个数，并添加新元素6
+    // console.log(str)
+    console.log(arr)
+
+    // slice(start,end)不包括结尾下标本身
+    //返回指定下标区间的值，可以为负数，并不会改变原数组
+   
+    // toString()  数组转化字符串
+    // console.log(arr.toString()) 
+
+    // arr.shift()     //删除，并返回数组第一个数
+    // arr.unshift()   //向数组开头添加一个或多个元素，并返回新的长度
+
+    // arr.pop()       //删除并返回数组最后一个元素
+    // arr.push()      //向数组结尾添加一个或多个元素，并返回新的长度
+    
+
+</script>

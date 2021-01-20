@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    // this
+    //a this出现在普通方法时，代表调用当前方法的对象本身
+    function fun(){
+        console.log(this)
+    }
+    fun()
+    // setInterval(() => {
+    //     console.log(this)
+    // }, 1000);
+    // b 出现在事件中，代表调用当前事件的html元素本身
+    // document.onclick=function(){
+    //     console.log(this)
+    // }
+
+    // bind是函数对象的方法，修改当前的this指向,只适用于 匿名函数
+    let obox=document.getElementById('box')
+    document.onclick=function(){
+        this.style.backgroundColor = 'red'
+    }.bind(obox)
+
+    // apply,call 有名函数改变this指向
+    function test(){
+        this.style.backgroundColor = 'orange'
+    }
+    // test.apply(obox)
+    test.call(obox)
+
+</script>

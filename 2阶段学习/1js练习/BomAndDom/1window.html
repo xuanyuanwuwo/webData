@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    
+    </script>
+</head>
+<body>
+   
+</body>
+</html>
+<script>
+    // window对象
+    // 所有自定义的全局变量和函数默认属于Window的属性和方法
+    var arr=888 
+    console.log(window.arr)
+
+    function fun(){
+        console.log('heihei')
+    }
+    window.fun()
+
+   // window对象常用弹出框
+   //特点：弹出框具有阻塞代码的行为,弹出框执行之后才会执行后面的代码
+    // alert('老王')
+    // console.log('xhxh')
+
+    // var x=prompt('提示信息','默认值')   //返回值是string类型
+    // console.log(x)
+
+    var cf = confirm('确认支付')     //返回布尔值
+    console.log(cf)
+
+    // window的onload事件，页面加载完后立即执行，如果script标签放在顶部则需要window.onload
+
+</script>

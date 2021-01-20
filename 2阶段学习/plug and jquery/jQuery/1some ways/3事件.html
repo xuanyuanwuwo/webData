@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" id="btn">幻色
+		</button>
+		<div id="box">
+			梧桐</div>
+	</body>
+</html>
+<script src="../js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(()=>{
+		//所有事件去掉on
+		$("#btn").click(()=>{
+			$("#box").css({backgroundColor:"red"})
+		})
+		//直接左作用本身时， mouseover不支持()=>{}
+		$("#box").mouseover(function(){
+			$(this).css({backgroundColor:"orangered"});
+		})
+		$("#box").mouseout(function(){
+			$(this).css({backgroundColor:"yellow"});
+		})
+		
+		// 参数格式 第一个为需要从外部传入的参数（可为变量，字符串，json数据），第二个为回调
+		//click('heihie',fn)
+		let box = $("#box")
+		$("#btn").click(box,(evt)=>{
+			//传入的参数通过data获取
+			console.log(evt.data.text()) //text也可写在上面赋值处
+		})
+	})
+</script>

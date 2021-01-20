@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		 wwh学习法
+		<h3>原型继承</h3>
+		
+		<p>what： js的继承，主要是依靠原型链。让子类原型对象(每一个构造函数都有一个原型对象-prototype)的值,等于另一个父类型的实例，即实现了继承;<br>
+			另外一个类的原型对象，再指向第三个类型的实例，一次类推，就形成了原型链
+		</p>
+		 <p>why: 继承后子类自动拥有父类的属性和方法, 可以提高代码的复用性，并且子类可以添加新的属性和方法</p> 
+	</body>
+</html>
+<script type="text/javascript">
+		function Zly(newName,newMovent){
+			this.name = newName;
+			this.movent = newMovent;
+		}
+		Zly.prototype.art = function(){
+			console.log("木叶三忍")
+		}
+		
+		function Xwmr(newDream){
+			this.dream = newDream	
+		}
+		Xwmr.prototype = new Zly("蛤蟆仙人自来也","螺旋丸")
+		Xwmr.prototype.arts = function(){
+			console.log(this.movent+"进阶版:风遁螺旋丸手里剑")
+		}
+		// 继承原型链时的注意事项
+		// 优先定义继承关系，再定义子类原型对象的方法，
+		// 如果继承关系写在之后，相当于对prototype的覆盖
+		
+		let mr = new Xwmr("火影")
+		mr.arts()
+		mr.art()
+		// 缺点：
+		//1、通过原型继承的子类，无法更改从父类实例继承的属性和方法
+		//2、通过原型继承的对象，大家所有的属性和方法都是共享的
+</script>

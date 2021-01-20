@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        .small{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin-left: 100px;
+            background-image: url(./img/hu.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .mask{
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+            opacity: 0.3;
+            position: absolute;
+            display: none;
+        }
+        .big{
+            width: 400px;
+            height: 400px;
+            float: left;
+            margin-left: 100px;
+            background-image: url(./img/hu.jpg);
+            background-repeat: no-repeat;
+            background-size: 800px 800px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+	<!-- 插口 -->
+    <div class="box">
+    	<div class="small">
+    		<div class="mask">
+    			
+    		</div>
+    	</div>
+		<div class="big">
+			
+		</div>
+    </div>
+</body>
+</html>
+<!-- 引入 -->
+<script src="放大镜插件.js" type="text/javascript" charset="utf-8"></script>
+<script>
+ 
+    let small=document.getElementsByClassName('small')[0];
+    let mask=document.getElementsByClassName('mask')[0];
+    let big=document.getElementsByClassName('big')[0];
+    
+    let mf=new Maigflter(small,mask,big)
+    // 调用规则
+    
+    mf.mouseover()
+    mf.mouseout()
+    mf.mousemove()
+</script>

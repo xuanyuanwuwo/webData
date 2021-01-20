@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr{
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <table id="tab" border="1" style="width: 300px;">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <button id="add">创建</button>
+    <!-- <button id="del">删除</button> -->
+</body>
+</html>
+<script>
+    var tab=document.getElementById('tab')
+    var add = document.getElementById('add')
+    // var i=0
+    add.onclick=function(){
+        for(var i=0; i<3; i++){
+            var tr=document.createElement('tr')
+            for(var j=0; j<3; j++){
+                var td=document.createElement('td')
+                td.innerHTML=i+j
+                tr.appendChild(td)
+                
+            }
+            tab.appendChild(tr)
+            var del=document.createElement('td')
+                del.innerHTML='删除'
+                tr.appendChild(del)
+            del.onclick=function(){
+                // 每次循环之后会创建三次del,同步执行顺序，循环结束后这个del指向的是第三个del，
+                // 则此时删除的是最后一个del的父元素tr
+                // del.parentElement.remove()
+
+                this.parentElement.remove()
+                // this指向执行当前事件的对象本身
+            }
+        }
+    }
+</script>

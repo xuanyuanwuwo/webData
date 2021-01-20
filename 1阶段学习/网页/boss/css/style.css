@@ -1,0 +1,281 @@
+html,body,div,p,ul,li,ol,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.bannier{
+    width: 1172px;
+    margin: 0 auto;
+}
+
+.hidden{
+    overflow: hidden;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/* nav */
+nav{
+    height: 100px;
+    line-height: 100px;
+}
+nav .boss{
+    margin-top: 22px;
+    margin-right: 42px;
+    width: 54px;
+    height: 34px;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    background: #53cac3;
+    color: white;
+    font-size: 16px;
+    line-height: 16px;
+}
+nav li{
+    float: left;
+    margin-right: 40px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+nav li:hover{
+    color: #53cac3;
+}
+nav img{
+    vertical-align: middle;
+    margin-right: 12px;
+}
+nav .cen{
+    width: 0;
+    height: 18px;
+    border-right: 1px solid #e5e5e5;
+    margin: 41px 19px ;
+}
+/* banner */
+
+.banner{
+    height: 294px;
+    background: #4c545d;
+    text-align: center;
+    padding-top: 106px;
+    color: white;
+    font-weight: lighter;
+}
+.banner p{
+    font-size: 34px;
+}
+.banner a{
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 50px;
+    height: 44px;
+    line-height: 44px;
+    width: 188px;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+    background: #53cac3;
+    color: white;
+}
+/* main */
+main{
+    background: #f3f3f3; 
+}
+main .bannier{
+    position: relative;
+    width: 1172px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+main .bannier>div{
+    position: absolute;
+    top: -68px;
+}
+main .one{
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    margin-bottom: 16px;
+}
+.one>div{
+    width: 284px;
+    margin: 42px 52px;
+}
+.blue .border-left{
+    height: 16px;
+    width: 0;
+    border-left: 3px solid #53cac3;
+    float: left;
+}
+.blue h3{
+    float: left;
+    line-height: 16px;
+    color: #404040;
+    margin-left: 10px;
+}
+.blue~a{
+    float: right;
+    width: 48px;
+    height: 18px;
+    border: 1px solid #404040;
+    color: #404040;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 18px;
+}
+.one .ig{
+    height: 158px;
+    margin-top: 45px;
+    margin-bottom: 32px;
+}
+.data .ig{ 
+    background: url(../img/data.png) no-repeat;
+}
+.one p{
+    font-size: 18px;
+    line-height: 34px;
+}
+.cargo .ig{
+    background: url(../img/cargo.png) no-repeat;
+}
+.report .ig{
+    background: url(../img/report.png) no-repeat;
+}
+.one>div span{
+    font-size: 14px;
+    color: #404040;
+    margin-top: 14px;
+}
+.one>div span:hover{
+    color: #53cac3;
+    cursor: pointer;
+}
+/* two */
+.two{
+    /* margin-top: 16px; */
+    font-size: 12px;
+    background: white
+}
+.two>.hidden{
+    padding: 45px 54px;
+}
+.two .bg{
+    width: 284px;
+    height: 158px;
+    
+    position: relative;
+}
+.two .bg span{
+    position: absolute;
+    top: 12px;
+    left: -4px;
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    background: #53cac3;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.two .bg1{
+    background: url(../img/data.png) no-repeat;
+}
+.two .bg2{
+    background: url(../img/report.png) no-repeat;
+}
+.two .bg3{
+    background: url(../img/cargo.png) no-repeat;
+}
+.two .news{
+    width: 734px;
+}
+.news h2{
+    font-size: 18px;
+    font-weight: 100;
+}
+.news p{
+    color: #959595;
+}
+.news .article{
+    margin-top: 20px;
+    line-height: 24px;
+}
+.news .tm{
+    margin-top: 30px;
+    line-height: 12px;
+}
+.news .tm span:first-child{
+    color: #53cac3;
+}
+.news .tm span{
+    margin-right: 10px;
+}
+.news .tm img{
+    margin-left: 48px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+/* three */
+.three{
+    background: white;
+    padding: 26px 45px 72px;
+}
+.three .blue{
+    margin-bottom: 16px;
+}
+.trends{
+    padding: 16px 0;
+    border-bottom: 1px dashed #cccccc;
+    overflow: hidden;
+}
+.trends .electron{
+    width: 146px;
+    height: 83px;
+    background: url(../img/electron.png) no-repeat;
+    float: left;
+    margin-right: 16px;
+}
+.trends .electron~div{
+    float: left;
+    width: 480px;
+}
+.trends h3{
+    font-size: 14px;
+    line-height: 26px;
+}
+.trends p{
+    font-size: 12px;
+    line-height: 20px;
+}
+.three .house{
+    width: 372px;
+    height: 314px;
+    background: url(../img/house.png) no-repeat;
+}
+/* footer */
+html,body{
+    min-height: 100%;
+}
+body{
+    position: relative;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    overflow: hidden;
+    background: black;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		同步和异步最明显的区别，时间，凡是和时间有关的，都是异步
+		<br>同步先行于异步
+	</body>
+</html>
+<script type="text/javascript">
+	
+	console.log(1)
+	setTimeout(
+		function(){
+		console.log(2)
+	},0)
+	setTimeout(
+		function(){
+		console.log(3)
+	},0)
+	console.log(4)
+	
+</script>

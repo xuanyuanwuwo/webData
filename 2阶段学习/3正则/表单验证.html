@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- action:地址     method:数据传递方式get post -->
+    <form action="./for.html" method="get" id="oform">  
+        <input type="text" id="userName" ><span></span><br>
+        <input type="text" id="pwd" ><span></span><br>
+        <input type="submit" id="sub">
+    </form>
+</body>
+</html>
+<script>
+    var userName=document.getElementById('userName')
+    var pwd=document.getElementById('pwd')
+    var oform=document.getElementById('oform')
+
+    var falgName=false
+    var falgPwd=false
+    userName.onblur=function(){
+        var user=userName.value
+        var regName=/^[a-zA-Z]{8,18}$/
+        if(regName.test(user)){
+            this.nextElementSibling.innerHTML='输入合法'
+            falgName=true
+        }else{
+            this.nextElementSibling.innerHTML='输入不合法'
+            falgName=true
+        }
+    }
+    pwd.onblur=function(){
+        var opwd=pwd.value
+        var regPwd=/^\w{8,14}$/
+        if(regPwd.test(opwd)){
+            this.nextElementSibling.innerHTML='输入合法'
+            falgPwd=true
+        }else{
+            this.nextElementSibling.innerHTML='输入不合法'
+            falgPwd=false
+        }
+    }
+
+    oform.onsubmit=function(){
+        if(falgName && falgPwd){
+            return true
+        }else{
+            return false
+        }
+    }
+    
+</script>

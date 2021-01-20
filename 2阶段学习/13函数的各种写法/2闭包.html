@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// function add(){
+	// 	var cont = 0
+	// 	cont++
+	// 	console.log(cont)
+	// }
+	// add()
+	// add() //cont是局域变量,再次读取值依然是固定的结果，而不会再次改变
+	// -------------------------------------------------------------------------------------------
+	// var cont = 0
+	// function add(){
+	// 	cont++
+	// 	console.log(cont)
+	// }
+	// add() 
+	// add() //cont是全局变量,每次调用值都会发生改变
+	// -------------------------------------------------------------------------
+	// 闭包  为了能够在函数外部,使用函数内局部变量的一个技巧
+	// function add(){
+	// 	var cont = 0
+	// 	function fun(){
+	// 		// cont++;
+	// 		return cont++
+	// 	}
+	// 	return fun
+	// }
+	// console.log(add()) //如果直接使用add(),相当于返回fun函数
+	// var f1 = add()		//此时相当于把fun和f1绑定,而cont对于fun相当于一个全局变量,数据不会销毁
+	// console.log(f1())
+	// console.log(f1())
+	// console.log(f1())
+	// ---------------------------------------------------------
+	
+	// 变身
+	// function add(){
+	// 	var cont = 0
+	// 	return function(){
+	// 		// cont++;
+	// 		return cont++
+	// 	}
+	// }
+	// console.log(add()) //此时调用返回的是fun函数
+	// var f1 = add()		//此时相当于把fun和返回函数绑定,而cont对于返回函数相当于一个全局变量,数据不会销毁
+	// console.log(f1())
+	// console.log(f1())
+	// console.log(f1())
+	// ---------------------------------------------------------
+	// 变身
+	var f1 =(function(){
+				var cont = 0
+				return function(){
+					return cont++
+				}
+			}())
+	console.log(f1())
+	console.log(f1())
+	console.log(f1())
+</script>

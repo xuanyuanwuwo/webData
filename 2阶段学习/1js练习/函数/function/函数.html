@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 函数：具有包裹性的功能模块
+    // function pri(x){//函数头目
+    //         document.write(x)
+    //         alert(x)
+    //     }
+    
+    // 函数头部：
+    // function: 关键字
+    // 函数名：满足标识符命名规则
+    // 参数列表 可无参可有参
+    // pri(5)函数的调用
+  //定义时传入的参数是实参，定义时的参数时形参
+    // function fun(){
+    //     for(var i=1; i<=9;i++){
+    //         for(var j=1; j<=i; j++){
+    //             document.write(j+'*'+i)
+    //         }
+    //         document.write('<br>')
+    //     }
+    // }
+    // fun()
+    
+    // 函数调用
+    function test(x,y){
+        t=x;
+        x=y;
+        y=t     
+    }
+    var a=123;
+    var b=456;//内置基本类型传参时，传递的是数值本身，所有上面函数里面的值变化比不能影响下面的空间
+    var t;
+    test(a,b)   //单向传值
+    console.log(a,b)//函数的生命周期极短，调用完立即关闭，不会影响外面
+
+
+    var arr=[1,2,3,4,5]//因用类型传的相当于一个空间钥匙，对方改变的是你房间里
+    
+    for(var i=arr.length-1; i>=0; i--){
+        document.write(arr[i])   
+
+    }
+</script>
